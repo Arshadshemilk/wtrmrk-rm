@@ -1,0 +1,710 @@
+Logging 146 replay steps...
+
+=== Step 1 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=0, fleet_ships=0 | total_ships=0
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=0, fleet_ships=0 | total_ships=0
+=== Step 2 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=10 | fleets=0, fleet_ships=0 | total_ships=10
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=10 | fleets=0, fleet_ships=0 | total_ships=10
+=== Step 3 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=11 | fleets=0, fleet_ships=0 | total_ships=11
+agent1.py | status=ACTIVE | reward=0 | action=[3, 0.72, 10] | planets=1, planet_ships=1 | fleets=1, fleet_ships=10 | total_ships=11
+  Top fleets: id=0 size=10 pos=(24.5,9.5) angle=0.72
+=== Step 4 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=12 | fleets=0, fleet_ships=0 | total_ships=12
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=2 | fleets=1, fleet_ships=10 | total_ships=12
+  Top fleets: id=0 size=10 pos=(26.0,10.8) angle=0.72
+=== Step 5 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=13 | fleets=0, fleet_ships=0 | total_ships=13
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=3 | fleets=1, fleet_ships=10 | total_ships=13
+  Top fleets: id=0 size=10 pos=(27.5,12.0) angle=0.72
+=== Step 6 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=14 | fleets=0, fleet_ships=0 | total_ships=14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=4 | fleets=1, fleet_ships=10 | total_ships=14
+  Top fleets: id=0 size=10 pos=(29.0,13.3) angle=0.72
+=== Step 7 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=15 | fleets=0, fleet_ships=0 | total_ships=15
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=5 | fleets=1, fleet_ships=10 | total_ships=15
+  Top fleets: id=0 size=10 pos=(30.4,14.6) angle=0.72
+=== Step 8 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=16 | fleets=0, fleet_ships=0 | total_ships=16
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=6 | fleets=1, fleet_ships=10 | total_ships=16
+  Top fleets: id=0 size=10 pos=(31.9,15.9) angle=0.72
+=== Step 9 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=17 | fleets=0, fleet_ships=0 | total_ships=17
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=7 | fleets=1, fleet_ships=10 | total_ships=17
+  Top fleets: id=0 size=10 pos=(33.4,17.2) angle=0.72
+=== Step 10 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=18 | fleets=0, fleet_ships=0 | total_ships=18
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=8 | fleets=1, fleet_ships=10 | total_ships=18
+  Top fleets: id=0 size=10 pos=(34.9,18.5) angle=0.72
+=== Step 11 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=19 | fleets=0, fleet_ships=0 | total_ships=19
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=9 | fleets=1, fleet_ships=10 | total_ships=19
+  Top fleets: id=0 size=10 pos=(36.4,19.8) angle=0.72
+=== Step 12 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=20 | fleets=0, fleet_ships=0 | total_ships=20
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=10 | fleets=1, fleet_ships=10 | total_ships=20
+  Top fleets: id=0 size=10 pos=(37.8,21.1) angle=0.72
+=== Step 13 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=21 | fleets=0, fleet_ships=0 | total_ships=21
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=11 | fleets=1, fleet_ships=10 | total_ships=21
+  Top fleets: id=0 size=10 pos=(39.3,22.3) angle=0.72
+=== Step 14 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=22 | fleets=0, fleet_ships=0 | total_ships=22
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=12 | fleets=1, fleet_ships=10 | total_ships=22
+  Top fleets: id=0 size=10 pos=(40.8,23.6) angle=0.72
+=== Step 15 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=23 | fleets=0, fleet_ships=0 | total_ships=23
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=16 | fleets=0, fleet_ships=0 | total_ships=16
+=== Step 16 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=24 | fleets=0, fleet_ships=0 | total_ships=24
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=20 | fleets=0, fleet_ships=0 | total_ships=20
+=== Step 17 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=25 | fleets=0, fleet_ships=0 | total_ships=25
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.57, 13]; [15, 1.88, 6] | planets=2, planet_ships=5 | fleets=2, fleet_ships=19 | total_ships=24
+  Top fleets: id=1 size=13 pos=(22.2,10.7) angle=1.57, id=2 size=6 pos=(42.7,28.9) angle=1.88
+=== Step 18 ===
+test.py | status=ACTIVE | reward=0 | action=[0, 3.14, 3]; [0, -1.68, 16] | planets=1, planet_ships=7 | fleets=2, fleet_ships=19 | total_ships=26
+  Top fleets: id=4 size=16 pos=(77.4,89.2) angle=-1.68, id=3 size=3 pos=(75.4,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=9 | fleets=2, fleet_ships=19 | total_ships=28
+  Top fleets: id=1 size=13 pos=(22.2,12.8) angle=1.57, id=2 size=6 pos=(42.2,30.5) angle=1.88
+=== Step 19 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=8 | fleets=2, fleet_ships=19 | total_ships=27
+  Top fleets: id=4 size=16 pos=(77.2,86.9) angle=-1.68, id=3 size=3 pos=(74.1,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[15, 1.91, 6] | planets=2, planet_ships=7 | fleets=3, fleet_ships=25 | total_ships=32
+  Top fleets: id=1 size=13 pos=(22.2,15.0) angle=1.57, id=2 size=6 pos=(41.7,32.1) angle=1.88, id=5 size=6 pos=(44.6,28.5) angle=1.91
+=== Step 20 ===
+test.py | status=ACTIVE | reward=0 | action=[0, 3.14, 3] | planets=1, planet_ships=6 | fleets=3, fleet_ships=22 | total_ships=28
+  Top fleets: id=4 size=16 pos=(76.9,84.7) angle=-1.68, id=3 size=3 pos=(72.7,92.5) angle=3.14, id=6 size=3 pos=(75.4,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=11 | fleets=3, fleet_ships=25 | total_ships=36
+  Top fleets: id=1 size=13 pos=(22.2,17.1) angle=1.57, id=2 size=6 pos=(41.2,33.7) angle=1.88, id=5 size=6 pos=(44.0,30.1) angle=1.91
+=== Step 21 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=7 | fleets=3, fleet_ships=22 | total_ships=29
+  Top fleets: id=4 size=16 pos=(76.7,82.4) angle=-1.68, id=3 size=3 pos=(71.4,92.5) angle=3.14, id=6 size=3 pos=(74.1,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=15 | fleets=3, fleet_ships=25 | total_ships=40
+  Top fleets: id=1 size=13 pos=(22.2,19.2) angle=1.57, id=2 size=6 pos=(40.7,35.2) angle=1.88, id=5 size=6 pos=(43.5,31.6) angle=1.91
+=== Step 22 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=8 | fleets=3, fleet_ships=22 | total_ships=30
+  Top fleets: id=4 size=16 pos=(76.4,80.2) angle=-1.68, id=3 size=3 pos=(70.1,92.5) angle=3.14, id=6 size=3 pos=(72.7,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[15, 2.54, 9] | planets=2, planet_ships=10 | fleets=4, fleet_ships=34 | total_ships=44
+  Top fleets: id=1 size=13 pos=(22.2,21.3) angle=1.57, id=7 size=9 pos=(45.4,26.8) angle=2.54, id=2 size=6 pos=(40.2,36.8) angle=1.88
+=== Step 23 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=9 | fleets=3, fleet_ships=22 | total_ships=31
+  Top fleets: id=4 size=16 pos=(76.2,77.9) angle=-1.68, id=3 size=3 pos=(68.8,92.5) angle=3.14, id=6 size=3 pos=(71.4,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=14 | fleets=4, fleet_ships=34 | total_ships=48
+  Top fleets: id=1 size=13 pos=(22.2,23.5) angle=1.57, id=7 size=9 pos=(43.8,27.9) angle=2.54, id=2 size=6 pos=(39.7,38.4) angle=1.88
+=== Step 24 ===
+test.py | status=ACTIVE | reward=0 | action=[0, 3.14, 6] | planets=1, planet_ships=4 | fleets=4, fleet_ships=28 | total_ships=32
+  Top fleets: id=4 size=16 pos=(75.9,75.6) angle=-1.68, id=8 size=6 pos=(75.0,92.5) angle=3.14, id=3 size=3 pos=(67.5,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=18 | fleets=4, fleet_ships=34 | total_ships=52
+  Top fleets: id=1 size=13 pos=(22.2,25.6) angle=1.57, id=7 size=9 pos=(42.3,29.0) angle=2.54, id=2 size=6 pos=(39.2,40.0) angle=1.88
+=== Step 25 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=5 | fleets=4, fleet_ships=28 | total_ships=33
+  Top fleets: id=4 size=16 pos=(75.7,73.4) angle=-1.68, id=8 size=6 pos=(73.4,92.5) angle=3.14, id=3 size=3 pos=(66.2,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[15, 2.66, 9] | planets=2, planet_ships=13 | fleets=5, fleet_ships=43 | total_ships=56
+  Top fleets: id=1 size=13 pos=(22.2,27.7) angle=1.57, id=7 size=9 pos=(40.7,30.1) angle=2.54, id=9 size=9 pos=(48.1,26.5) angle=2.66
+=== Step 26 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=6 | fleets=4, fleet_ships=28 | total_ships=34
+  Top fleets: id=4 size=16 pos=(75.4,71.1) angle=-1.68, id=8 size=6 pos=(71.7,92.5) angle=3.14, id=3 size=3 pos=(64.8,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.30, 10] | planets=2, planet_ships=7 | fleets=6, fleet_ships=53 | total_ships=60
+  Top fleets: id=1 size=13 pos=(22.2,29.9) angle=1.57, id=10 size=10 pos=(23.0,10.4) angle=1.30, id=7 size=9 pos=(39.1,31.1) angle=2.54
+=== Step 27 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=7 | fleets=4, fleet_ships=28 | total_ships=35
+  Top fleets: id=4 size=16 pos=(75.2,68.9) angle=-1.68, id=8 size=6 pos=(70.0,92.5) angle=3.14, id=3 size=3 pos=(63.5,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=11 | fleets=6, fleet_ships=53 | total_ships=64
+  Top fleets: id=1 size=13 pos=(22.2,32.0) angle=1.57, id=10 size=10 pos=(23.6,12.3) angle=1.30, id=7 size=9 pos=(37.6,32.2) angle=2.54
+=== Step 28 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=8 | fleets=4, fleet_ships=28 | total_ships=36
+  Top fleets: id=4 size=16 pos=(74.9,66.6) angle=-1.68, id=8 size=6 pos=(68.4,92.5) angle=3.14, id=3 size=3 pos=(62.2,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[15, 2.77, 9] | planets=2, planet_ships=6 | fleets=7, fleet_ships=62 | total_ships=68
+  Top fleets: id=1 size=13 pos=(22.2,34.1) angle=1.57, id=10 size=10 pos=(24.1,14.2) angle=1.30, id=7 size=9 pos=(36.0,33.3) angle=2.54
+=== Step 29 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=9 | fleets=4, fleet_ships=28 | total_ships=37
+  Top fleets: id=4 size=16 pos=(74.7,64.4) angle=-1.68, id=8 size=6 pos=(66.7,92.5) angle=3.14, id=3 size=3 pos=(60.9,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=10 | fleets=7, fleet_ships=62 | total_ships=72
+  Top fleets: id=1 size=13 pos=(22.2,36.3) angle=1.57, id=10 size=10 pos=(24.6,16.1) angle=1.30, id=7 size=9 pos=(34.5,34.3) angle=2.54
+=== Step 30 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=10 | fleets=4, fleet_ships=28 | total_ships=38
+  Top fleets: id=4 size=16 pos=(74.4,62.1) angle=-1.68, id=8 size=6 pos=(65.1,92.5) angle=3.14, id=3 size=3 pos=(59.6,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=14 | fleets=7, fleet_ships=62 | total_ships=76
+  Top fleets: id=1 size=13 pos=(22.2,38.4) angle=1.57, id=10 size=10 pos=(25.1,18.0) angle=1.30, id=7 size=9 pos=(32.9,35.4) angle=2.54
+=== Step 31 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=20 | fleets=3, fleet_ships=12 | total_ships=32
+  Top fleets: id=8 size=6 pos=(63.4,92.5) angle=3.14, id=3 size=3 pos=(58.3,92.5) angle=3.14, id=6 size=3 pos=(60.9,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=18 | fleets=7, fleet_ships=62 | total_ships=80
+  Top fleets: id=1 size=13 pos=(22.2,40.5) angle=1.57, id=10 size=10 pos=(25.7,19.9) angle=1.30, id=7 size=9 pos=(31.3,36.5) angle=2.54
+=== Step 32 ===
+test.py | status=ACTIVE | reward=0 | action=[0, 3.14, 9] | planets=2, planet_ships=15 | fleets=4, fleet_ships=21 | total_ships=36
+  Top fleets: id=12 size=9 pos=(74.8,92.5) angle=3.14, id=8 size=6 pos=(61.7,92.5) angle=3.14, id=3 size=3 pos=(56.9,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=22 | fleets=7, fleet_ships=62 | total_ships=84
+  Top fleets: id=1 size=13 pos=(22.2,42.7) angle=1.57, id=10 size=10 pos=(26.2,21.8) angle=1.30, id=7 size=9 pos=(29.8,37.6) angle=2.54
+=== Step 33 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=19 | fleets=4, fleet_ships=21 | total_ships=40
+  Top fleets: id=12 size=9 pos=(72.9,92.5) angle=3.14, id=8 size=6 pos=(60.1,92.5) angle=3.14, id=3 size=3 pos=(55.6,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=28 | fleets=6, fleet_ships=53 | total_ships=81
+  Top fleets: id=1 size=13 pos=(22.2,44.8) angle=1.57, id=10 size=10 pos=(26.7,23.6) angle=1.30, id=9 size=9 pos=(34.7,33.5) angle=2.66
+=== Step 34 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=23 | fleets=4, fleet_ships=21 | total_ships=44
+  Top fleets: id=12 size=9 pos=(71.0,92.5) angle=3.14, id=8 size=6 pos=(58.4,92.5) angle=3.14, id=3 size=3 pos=(54.3,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=35 | fleets=6, fleet_ships=53 | total_ships=88
+  Top fleets: id=1 size=13 pos=(22.2,46.9) angle=1.57, id=10 size=10 pos=(27.2,25.5) angle=1.30, id=9 size=9 pos=(33.0,34.4) angle=2.66
+=== Step 35 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=27 | fleets=4, fleet_ships=21 | total_ships=48
+  Top fleets: id=12 size=9 pos=(69.1,92.5) angle=3.14, id=8 size=6 pos=(56.8,92.5) angle=3.14, id=3 size=3 pos=(53.0,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=42 | fleets=6, fleet_ships=53 | total_ships=95
+  Top fleets: id=1 size=13 pos=(22.2,49.1) angle=1.57, id=10 size=10 pos=(27.8,27.4) angle=1.30, id=9 size=9 pos=(31.3,35.3) angle=2.66
+=== Step 36 ===
+test.py | status=ACTIVE | reward=0 | action=[14, 2.60, 20] | planets=2, planet_ships=11 | fleets=5, fleet_ships=41 | total_ships=52
+  Top fleets: id=13 size=20 pos=(68.5,64.5) angle=2.60, id=12 size=9 pos=(67.2,92.5) angle=3.14, id=8 size=6 pos=(55.1,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.53, 8] | planets=3, planet_ships=50 | fleets=6, fleet_ships=52 | total_ships=102
+  Top fleets: id=1 size=13 pos=(22.2,51.2) angle=1.57, id=10 size=10 pos=(28.3,29.3) angle=1.30, id=11 size=9 pos=(36.7,31.9) angle=2.77
+=== Step 37 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=15 | fleets=5, fleet_ships=41 | total_ships=56
+  Top fleets: id=13 size=20 pos=(66.4,65.8) angle=2.60, id=12 size=9 pos=(65.3,92.5) angle=3.14, id=8 size=6 pos=(53.4,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.55, 12]; [15, -0.95, 26] | planets=3, planet_ships=19 | fleets=8, fleet_ships=90 | total_ships=109
+  Top fleets: id=16 size=26 pos=(65.8,24.2) angle=-0.95, id=1 size=13 pos=(22.2,53.3) angle=1.57, id=15 size=12 pos=(28.1,41.3) angle=1.55
+=== Step 38 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=19 | fleets=5, fleet_ships=41 | total_ships=60
+  Top fleets: id=13 size=20 pos=(64.3,67.1) angle=2.60, id=12 size=9 pos=(63.4,92.5) angle=3.14, id=8 size=6 pos=(51.8,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=26 | fleets=8, fleet_ships=90 | total_ships=116
+  Top fleets: id=16 size=26 pos=(67.3,22.0) angle=-0.95, id=1 size=13 pos=(22.2,55.4) angle=1.57, id=15 size=12 pos=(28.2,43.3) angle=1.55
+=== Step 39 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=23 | fleets=5, fleet_ships=41 | total_ships=64
+  Top fleets: id=13 size=20 pos=(62.2,68.3) angle=2.60, id=12 size=9 pos=(61.5,92.5) angle=3.14, id=8 size=6 pos=(50.1,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=52 | fleets=5, fleet_ships=45 | total_ships=97
+  Top fleets: id=1 size=13 pos=(22.2,57.6) angle=1.57, id=15 size=12 pos=(28.2,45.4) angle=1.55, id=14 size=8 pos=(27.9,47.4) angle=1.53
+=== Step 40 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=27 | fleets=5, fleet_ships=41 | total_ships=68
+  Top fleets: id=13 size=20 pos=(60.2,69.6) angle=2.60, id=12 size=9 pos=(59.6,92.5) angle=3.14, id=8 size=6 pos=(48.5,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[15, -0.56, 6]; [13, 1.65, 17] | planets=3, planet_ships=36 | fleets=7, fleet_ships=68 | total_ships=104
+  Top fleets: id=18 size=17 pos=(29.4,39.0) angle=1.65, id=1 size=13 pos=(22.2,59.7) angle=1.57, id=15 size=12 pos=(28.3,47.5) angle=1.55
+=== Step 41 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=31 | fleets=5, fleet_ships=41 | total_ships=72
+  Top fleets: id=13 size=20 pos=(58.1,70.8) angle=2.60, id=12 size=9 pos=(57.7,92.5) angle=3.14, id=8 size=6 pos=(46.8,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.69, 14] | planets=3, planet_ships=29 | fleets=8, fleet_ships=82 | total_ships=111
+  Top fleets: id=18 size=17 pos=(29.2,41.3) angle=1.65, id=19 size=14 pos=(29.8,38.1) angle=1.69, id=1 size=13 pos=(22.2,61.8) angle=1.57
+=== Step 42 ===
+test.py | status=ACTIVE | reward=0 | action=[14, -1.12, 18] | planets=2, planet_ships=17 | fleets=6, fleet_ships=59 | total_ships=76
+  Top fleets: id=13 size=20 pos=(56.0,72.1) angle=2.60, id=20 size=18 pos=(71.0,62.9) angle=-1.12, id=12 size=9 pos=(55.8,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=36 | fleets=8, fleet_ships=82 | total_ships=118
+  Top fleets: id=18 size=17 pos=(29.0,43.6) angle=1.65, id=19 size=14 pos=(29.6,40.3) angle=1.69, id=1 size=13 pos=(22.2,64.0) angle=1.57
+=== Step 43 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=21 | fleets=6, fleet_ships=59 | total_ships=80
+  Top fleets: id=13 size=20 pos=(53.9,73.3) angle=2.60, id=20 size=18 pos=(72.0,60.8) angle=-1.12, id=12 size=9 pos=(53.9,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.83, 6]; [15, -0.57, 12]; [3, 0.73, 10] | planets=3, planet_ships=15 | fleets=10, fleet_ships=104 | total_ships=119
+  Top fleets: id=18 size=17 pos=(28.8,45.9) angle=1.65, id=19 size=14 pos=(29.3,42.4) angle=1.69, id=1 size=13 pos=(22.2,66.1) angle=1.57
+=== Step 44 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=25 | fleets=6, fleet_ships=59 | total_ships=84
+  Top fleets: id=13 size=20 pos=(51.8,74.6) angle=2.60, id=20 size=18 pos=(73.1,58.7) angle=-1.12, id=12 size=9 pos=(52.0,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=24 | fleets=9, fleet_ships=98 | total_ships=122
+  Top fleets: id=18 size=17 pos=(28.6,48.3) angle=1.65, id=19 size=14 pos=(29.1,44.6) angle=1.69, id=1 size=13 pos=(22.2,68.2) angle=1.57
+=== Step 45 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=29 | fleets=6, fleet_ships=59 | total_ships=88
+  Top fleets: id=13 size=20 pos=(49.8,75.9) angle=2.60, id=20 size=18 pos=(74.1,56.6) angle=-1.12, id=12 size=9 pos=(50.1,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.90, 6] | planets=4, planet_ships=28 | fleets=10, fleet_ships=104 | total_ships=132
+  Top fleets: id=18 size=17 pos=(28.4,50.6) angle=1.65, id=19 size=14 pos=(28.8,46.8) angle=1.69, id=1 size=13 pos=(22.2,70.4) angle=1.57
+=== Step 46 ===
+test.py | status=ACTIVE | reward=0 | action=[14, 2.74, 9]; [0, 3.12, 15] | planets=2, planet_ships=9 | fleets=8, fleet_ships=83 | total_ships=92
+  Top fleets: id=13 size=20 pos=(47.7,77.1) angle=2.60, id=20 size=18 pos=(75.1,54.4) angle=-1.12, id=26 size=15 pos=(74.5,92.6) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=50 | fleets=8, fleet_ships=79 | total_ships=129
+  Top fleets: id=18 size=17 pos=(28.3,52.9) angle=1.65, id=19 size=14 pos=(28.5,48.9) angle=1.69, id=15 size=12 pos=(28.5,60.0) angle=1.55
+=== Step 47 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=13 | fleets=8, fleet_ships=83 | total_ships=96
+  Top fleets: id=13 size=20 pos=(45.6,78.4) angle=2.60, id=20 size=18 pos=(76.1,52.3) angle=-1.12, id=26 size=15 pos=(72.2,92.6) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=[19, 1.38, 13]; [15, 1.25, 11] | planets=4, planet_ships=36 | fleets=10, fleet_ships=103 | total_ships=139
+  Top fleets: id=18 size=17 pos=(28.1,55.2) angle=1.65, id=19 size=14 pos=(28.3,51.1) angle=1.69, id=27 size=13 pos=(78.0,29.9) angle=1.38
+=== Step 48 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=17 | fleets=8, fleet_ships=83 | total_ships=100
+  Top fleets: id=13 size=20 pos=(43.5,79.6) angle=2.60, id=20 size=18 pos=(77.2,50.2) angle=-1.12, id=26 size=15 pos=(70.0,92.7) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.79, 9]; [13, 2.32, 9] | planets=5, planet_ships=47 | fleets=9, fleet_ships=91 | total_ships=138
+  Top fleets: id=18 size=17 pos=(27.9,57.5) angle=1.65, id=19 size=14 pos=(28.0,53.3) angle=1.69, id=27 size=13 pos=(78.4,32.0) angle=1.38
+=== Step 49 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=21 | fleets=8, fleet_ships=83 | total_ships=104
+  Top fleets: id=13 size=20 pos=(41.5,80.9) angle=2.60, id=20 size=18 pos=(78.2,48.1) angle=-1.12, id=26 size=15 pos=(67.8,92.7) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=[12, 2.68, 19] | planets=5, planet_ships=41 | fleets=10, fleet_ships=110 | total_ships=151
+  Top fleets: id=31 size=19 pos=(24.4,65.8) angle=2.68, id=18 size=17 pos=(27.7,59.8) angle=1.65, id=19 size=14 pos=(27.8,55.4) angle=1.69
+=== Step 50 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=25 | fleets=8, fleet_ships=83 | total_ships=108
+  Top fleets: id=13 size=20 pos=(39.4,82.1) angle=2.60, id=20 size=18 pos=(79.2,46.0) angle=-1.12, id=26 size=15 pos=(65.6,92.8) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=71 | fleets=8, fleet_ships=87 | total_ships=158
+  Top fleets: id=31 size=19 pos=(22.3,66.8) angle=2.68, id=19 size=14 pos=(27.5,57.6) angle=1.69, id=27 size=13 pos=(79.2,36.2) angle=1.38
+=== Step 51 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=29 | fleets=8, fleet_ships=83 | total_ships=112
+  Top fleets: id=13 size=20 pos=(37.3,83.4) angle=2.60, id=20 size=18 pos=(80.3,43.9) angle=-1.12, id=26 size=15 pos=(63.3,92.8) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=6, planet_ships=100 | fleets=6, fleet_ships=54 | total_ships=154
+  Top fleets: id=27 size=13 pos=(79.6,38.3) angle=1.38, id=28 size=11 pos=(74.3,46.3) angle=1.25, id=29 size=9 pos=(20.3,15.9) angle=1.79
+=== Step 52 ===
+test.py | status=ACTIVE | reward=0 | action=[14, 1.21, 12] | planets=2, planet_ships=21 | fleets=9, fleet_ships=95 | total_ships=116
+  Top fleets: id=13 size=20 pos=(35.2,84.7) angle=2.60, id=20 size=18 pos=(81.3,41.7) angle=-1.12, id=26 size=15 pos=(61.1,92.8) angle=3.12
+agent1.py | status=ACTIVE | reward=0 | action=[12, 0.55, 40]; [13, -1.94, 11] | planets=6, planet_ships=65 | fleets=8, fleet_ships=105 | total_ships=170
+  Top fleets: id=33 size=40 pos=(31.5,63.9) angle=0.55, id=27 size=13 pos=(80.0,40.4) angle=1.38, id=28 size=11 pos=(74.9,48.2) angle=1.25
+=== Step 53 ===
+test.py | status=ACTIVE | reward=0 | action=[14, 0.60, 3] | planets=3, planet_ships=29 | fleets=9, fleet_ships=83 | total_ships=112
+  Top fleets: id=13 size=20 pos=(33.2,85.9) angle=2.60, id=20 size=18 pos=(82.3,39.6) angle=-1.12, id=32 size=12 pos=(63.4,78.9) angle=1.21
+agent1.py | status=ACTIVE | reward=0 | action=[15, 1.27, 16]; [19, -2.87, 11] | planets=6, planet_ships=54 | fleets=10, fleet_ships=132 | total_ships=186
+  Top fleets: id=33 size=40 pos=(34.0,65.4) angle=0.55, id=36 size=16 pos=(74.7,44.0) angle=1.27, id=27 size=13 pos=(80.4,42.5) angle=1.38
+=== Step 54 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=34 | fleets=9, fleet_ships=83 | total_ships=117
+  Top fleets: id=13 size=20 pos=(31.1,87.2) angle=2.60, id=20 size=18 pos=(83.4,37.5) angle=-1.12, id=32 size=12 pos=(64.2,80.8) angle=1.21
+agent1.py | status=ACTIVE | reward=0 | action=[19, -3.06, 10] | planets=6, planet_ships=60 | fleets=11, fleet_ships=142 | total_ships=202
+  Top fleets: id=33 size=40 pos=(36.5,67.0) angle=0.55, id=36 size=16 pos=(75.3,46.2) angle=1.27, id=27 size=13 pos=(80.8,44.6) angle=1.38
+=== Step 55 ===
+test.py | status=ACTIVE | reward=0 | action=[14, -1.23, 12] | planets=4, planet_ships=54 | fleets=8, fleet_ships=65 | total_ships=119
+  Top fleets: id=13 size=20 pos=(29.0,88.4) angle=2.60, id=39 size=12 pos=(59.9,70.0) angle=-1.23, id=12 size=9 pos=(31.2,92.5) angle=3.14
+agent1.py | status=ACTIVE | reward=0 | action=[13, -3.03, 10]; [16, -0.11, 11]; [19, 3.03, 10] | planets=6, planet_ships=45 | fleets=13, fleet_ships=162 | total_ships=207
+  Top fleets: id=33 size=40 pos=(39.0,68.5) angle=0.55, id=36 size=16 pos=(76.0,48.4) angle=1.27, id=27 size=13 pos=(81.2,46.7) angle=1.38
+=== Step 56 ===
+test.py | status=ACTIVE | reward=0 | action=[33, 0.65, 15]; [19, 2.86, 12] | planets=4, planet_ships=35 | fleets=9, fleet_ships=86 | total_ships=121
+  Top fleets: id=13 size=20 pos=(26.9,89.7) angle=2.60, id=43 size=15 pos=(67.5,84.7) angle=0.65, id=39 size=12 pos=(60.6,68.1) angle=-1.23
+agent1.py | status=ACTIVE | reward=0 | action=[12, 1.15, 11] | planets=6, planet_ships=54 | fleets=13, fleet_ships=167 | total_ships=221
+  Top fleets: id=33 size=40 pos=(41.5,70.1) angle=0.55, id=36 size=16 pos=(76.7,50.5) angle=1.27, id=27 size=13 pos=(81.6,48.8) angle=1.38
+=== Step 57 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=43 | fleets=9, fleet_ships=86 | total_ships=129
+  Top fleets: id=13 size=20 pos=(24.8,90.9) angle=2.60, id=43 size=15 pos=(69.3,86.0) angle=0.65, id=39 size=12 pos=(61.3,66.1) angle=-1.23
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=6, planet_ships=78 | fleets=12, fleet_ships=157 | total_ships=235
+  Top fleets: id=33 size=40 pos=(44.0,71.6) angle=0.55, id=36 size=16 pos=(77.4,52.7) angle=1.27, id=27 size=13 pos=(82.0,50.8) angle=1.38
+=== Step 58 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=62 | fleets=7, fleet_ships=63 | total_ships=125
+  Top fleets: id=43 size=15 pos=(71.1,87.4) angle=0.65, id=39 size=12 pos=(62.0,64.2) angle=-1.23, id=44 size=12 pos=(75.8,38.8) angle=2.86
+agent1.py | status=ACTIVE | reward=0 | action=[12, 0.56, 12]; [15, 2.29, 9] | planets=7, planet_ships=80 | fleets=12, fleet_ships=161 | total_ships=241
+  Top fleets: id=33 size=40 pos=(46.5,73.2) angle=0.55, id=36 size=16 pos=(78.0,54.9) angle=1.27, id=27 size=13 pos=(82.4,52.9) angle=1.38
+=== Step 59 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=71 | fleets=7, fleet_ships=63 | total_ships=134
+  Top fleets: id=43 size=15 pos=(72.8,88.7) angle=0.65, id=39 size=12 pos=(62.7,62.2) angle=-1.23, id=44 size=12 pos=(73.8,39.4) angle=2.86
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=7, planet_ships=105 | fleets=11, fleet_ships=151 | total_ships=256
+  Top fleets: id=33 size=40 pos=(49.0,74.7) angle=0.55, id=36 size=16 pos=(78.7,57.0) angle=1.27, id=27 size=13 pos=(82.8,55.0) angle=1.38
+=== Step 60 ===
+test.py | status=ACTIVE | reward=0 | action=[14, 2.74, 19] | planets=4, planet_ships=70 | fleets=6, fleet_ships=70 | total_ships=140
+  Top fleets: id=48 size=19 pos=(49.4,77.0) angle=2.74, id=43 size=15 pos=(74.6,90.1) angle=0.65, id=39 size=12 pos=(63.4,60.3) angle=-1.23
+agent1.py | status=ACTIVE | reward=0 | action=[13, -2.67, 9]; [16, -1.66, 15]; [3, 1.71, 15]; [12, -0.72, 11] | planets=9, planet_ships=120 | fleets=12, fleet_ships=140 | total_ships=260
+  Top fleets: id=36 size=16 pos=(79.4,59.2) angle=1.27, id=50 size=15 pos=(14.1,53.7) angle=-1.66, id=51 size=15 pos=(21.7,10.8) angle=1.71
+=== Step 61 ===
+test.py | status=ACTIVE | reward=0 | action=[0, -1.57, 8]; [1, -1.71, 17] | planets=5, planet_ships=54 | fleets=7, fleet_ships=83 | total_ships=137
+  Top fleets: id=48 size=19 pos=(47.2,78.0) angle=2.74, id=54 size=17 pos=(21.7,89.2) angle=-1.71, id=43 size=15 pos=(76.4,91.5) angle=0.65
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.74, 24]; [35, -2.67, 17] | planets=8, planet_ships=89 | fleets=14, fleet_ships=181 | total_ships=270
+  Top fleets: id=55 size=24 pos=(48.3,77.2) angle=2.74, id=56 size=17 pos=(66.0,35.2) angle=-2.67, id=36 size=16 pos=(80.1,61.4) angle=1.27
+=== Step 62 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=76 | fleets=6, fleet_ships=68 | total_ships=144
+  Top fleets: id=48 size=19 pos=(45.0,78.9) angle=2.74, id=54 size=17 pos=(21.4,86.9) angle=-1.71, id=39 size=12 pos=(64.8,56.3) angle=-1.23
+agent1.py | status=ACTIVE | reward=0 | action=[15, -2.57, 11]; [14, 2.73, 13]; [12, -0.69, 8] | planets=8, planet_ships=75 | fleets=17, fleet_ships=213 | total_ships=288
+  Top fleets: id=55 size=24 pos=(45.9,78.2) angle=2.74, id=56 size=17 pos=(64.0,34.1) angle=-2.67, id=36 size=16 pos=(80.7,63.5) angle=1.27
+=== Step 63 ===
+test.py | status=ACTIVE | reward=0 | action=[33, -0.41, 6]; [19, 2.56, 21]; [0, 0.09, 24] | planets=5, planet_ships=32 | fleets=9, fleet_ships=119 | total_ships=151
+  Top fleets: id=62 size=24 pos=(81.4,92.9) angle=0.09, id=61 size=21 pos=(82.4,48.6) angle=2.56, id=48 size=19 pos=(42.8,79.8) angle=2.74
+agent1.py | status=ACTIVE | reward=0 | action=[16, -0.63, 9] | planets=8, planet_ships=104 | fleets=16, fleet_ships=202 | total_ships=306
+  Top fleets: id=55 size=24 pos=(43.5,79.3) angle=2.74, id=56 size=17 pos=(61.9,33.1) angle=-2.67, id=36 size=16 pos=(81.4,65.7) angle=1.27
+=== Step 64 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=51 | fleets=8, fleet_ships=107 | total_ships=158
+  Top fleets: id=62 size=24 pos=(84.0,93.1) angle=0.09, id=61 size=21 pos=(80.3,50.0) angle=2.56, id=48 size=19 pos=(40.6,80.7) angle=2.74
+agent1.py | status=ACTIVE | reward=0 | action=[34, 1.80, 24]; [14, 2.59, 6]; [12, -0.67, 6]; [16, -0.61, 12] | planets=8, planet_ships=98 | fleets=18, fleet_ships=217 | total_ships=315
+  Top fleets: id=55 size=24 pos=(41.2,80.3) angle=2.74, id=56 size=17 pos=(59.9,32.0) angle=-2.67, id=36 size=16 pos=(82.1,67.9) angle=1.27
+=== Step 65 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=6, planet_ships=61 | fleets=7, fleet_ships=101 | total_ships=162
+  Top fleets: id=62 size=24 pos=(86.5,93.4) angle=0.09, id=61 size=21 pos=(78.3,51.3) angle=2.56, id=48 size=19 pos=(38.4,81.7) angle=2.74
+agent1.py | status=ACTIVE | reward=0 | action=[32, -0.74, 19]; [15, 0.16, 20] | planets=7, planet_ships=74 | fleets=20, fleet_ships=256 | total_ships=330
+  Top fleets: id=55 size=24 pos=(38.8,81.3) angle=2.74, id=69 size=20 pos=(80.0,52.1) angle=0.16, id=68 size=19 pos=(36.4,45.3) angle=-0.74
+=== Step 66 ===
+test.py | status=ACTIVE | reward=0 | action=[19, -1.77, 6] | planets=6, planet_ships=77 | fleets=7, fleet_ships=86 | total_ships=163
+  Top fleets: id=62 size=24 pos=(89.1,93.6) angle=0.09, id=48 size=19 pos=(36.2,82.6) angle=2.74, id=54 size=17 pos=(20.1,77.7) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=none | planets=7, planet_ships=89 | fleets=19, fleet_ships=247 | total_ships=336
+  Top fleets: id=55 size=24 pos=(36.5,82.3) angle=2.74, id=69 size=20 pos=(82.4,52.5) angle=0.16, id=68 size=19 pos=(38.1,43.7) angle=-0.74
+=== Step 67 ===
+test.py | status=ACTIVE | reward=0 | action=[15, 2.59, 25]; [19, -2.75, 5] | planets=6, planet_ships=51 | fleets=8, fleet_ships=92 | total_ships=143
+  Top fleets: id=71 size=25 pos=(71.2,55.8) angle=2.59, id=48 size=19 pos=(34.0,83.5) angle=2.74, id=54 size=17 pos=(19.8,75.4) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, -0.64, 5] | planets=8, planet_ships=121 | fleets=18, fleet_ships=223 | total_ships=344
+  Top fleets: id=55 size=24 pos=(34.1,83.3) angle=2.74, id=68 size=19 pos=(39.9,42.1) angle=-0.74, id=56 size=17 pos=(53.7,28.8) angle=-2.67
+=== Step 68 ===
+test.py | status=ACTIVE | reward=0 | action=[35, 2.57, 6]; [0, -1.57, 5] | planets=6, planet_ships=54 | fleets=9, fleet_ships=97 | total_ships=151
+  Top fleets: id=71 size=25 pos=(69.0,57.2) angle=2.59, id=48 size=19 pos=(31.8,84.5) angle=2.74, id=54 size=17 pos=(19.4,73.1) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, -0.63, 5]; [13, -0.69, 25]; [16, 1.65, 9]; [14, 2.66, 6]; [32, -0.63, 11] | planets=8, planet_ships=106 | fleets=21, fleet_ships=256 | total_ships=362
+  Top fleets: id=77 size=25 pos=(58.0,21.8) angle=-0.69, id=55 size=24 pos=(31.8,84.3) angle=2.74, id=68 size=19 pos=(41.7,40.4) angle=-0.74
+=== Step 69 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=6, planet_ships=62 | fleets=9, fleet_ships=97 | total_ships=159
+  Top fleets: id=71 size=25 pos=(66.8,58.5) angle=2.59, id=48 size=19 pos=(29.6,85.4) angle=2.74, id=54 size=17 pos=(19.1,70.8) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, 1.57, 22] | planets=8, planet_ships=102 | fleets=21, fleet_ships=267 | total_ships=369
+  Top fleets: id=77 size=25 pos=(60.0,20.2) angle=-0.69, id=55 size=24 pos=(29.4,85.3) angle=2.74, id=81 size=22 pos=(25.0,49.4) angle=1.57
+=== Step 70 ===
+test.py | status=ACTIVE | reward=0 | action=[1, -0.95, 14] | planets=6, planet_ships=56 | fleets=10, fleet_ships=111 | total_ships=167
+  Top fleets: id=71 size=25 pos=(64.6,59.9) angle=2.59, id=48 size=19 pos=(27.4,86.3) angle=2.74, id=54 size=17 pos=(18.8,68.6) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[16, -0.52, 5] | planets=8, planet_ships=115 | fleets=21, fleet_ships=266 | total_ships=381
+  Top fleets: id=77 size=25 pos=(62.0,18.5) angle=-0.69, id=55 size=24 pos=(27.1,86.3) angle=2.74, id=81 size=22 pos=(25.0,51.9) angle=1.57
+=== Step 71 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=6, planet_ships=49 | fleets=10, fleet_ships=111 | total_ships=160
+  Top fleets: id=71 size=25 pos=(62.4,61.3) angle=2.59, id=48 size=19 pos=(25.1,87.3) angle=2.74, id=54 size=17 pos=(18.5,66.3) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[19, -1.73, 13]; [34, 2.90, 15] | planets=9, planet_ships=110 | fleets=21, fleet_ships=254 | total_ships=364
+  Top fleets: id=55 size=24 pos=(24.7,87.3) angle=2.74, id=81 size=22 pos=(25.0,54.4) angle=1.57, id=68 size=19 pos=(47.0,35.6) angle=-0.74
+=== Step 72 ===
+test.py | status=ACTIVE | reward=0 | action=[15, -1.50, 12]; [33, -0.63, 13] | planets=6, planet_ships=32 | fleets=12, fleet_ships=136 | total_ships=168
+  Top fleets: id=71 size=25 pos=(60.2,62.6) angle=2.59, id=48 size=19 pos=(22.9,88.2) angle=2.74, id=54 size=17 pos=(18.1,64.0) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.39, 21]; [32, -0.82, 19] | planets=9, planet_ships=91 | fleets=23, fleet_ships=294 | total_ships=385
+  Top fleets: id=55 size=24 pos=(22.4,88.3) angle=2.74, id=81 size=22 pos=(25.0,56.9) angle=1.57, id=88 size=21 pos=(38.5,77.4) angle=2.39
+=== Step 73 ===
+test.py | status=ACTIVE | reward=0 | action=[24, -1.78, 6] | planets=6, planet_ships=34 | fleets=13, fleet_ships=142 | total_ships=176
+  Top fleets: id=71 size=25 pos=(58.0,64.0) angle=2.59, id=48 size=19 pos=(20.7,89.1) angle=2.74, id=54 size=17 pos=(17.8,61.7) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, -1.28, 9] | planets=9, planet_ships=122 | fleets=23, fleet_ships=284 | total_ships=406
+  Top fleets: id=55 size=24 pos=(20.0,89.4) angle=2.74, id=81 size=22 pos=(25.0,59.4) angle=1.57, id=88 size=21 pos=(36.7,79.0) angle=2.39
+=== Step 74 ===
+test.py | status=ACTIVE | reward=0 | action=[24, -1.63, 1] | planets=6, planet_ships=41 | fleets=14, fleet_ships=143 | total_ships=184
+  Top fleets: id=71 size=25 pos=(55.8,65.3) angle=2.59, id=48 size=19 pos=(18.5,90.1) angle=2.74, id=54 size=17 pos=(17.5,59.4) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[13, 1.31, 39]; [16, -0.41, 15]; [12, -0.49, 9] | planets=9, planet_ships=80 | fleets=25, fleet_ships=341 | total_ships=421
+  Top fleets: id=93 size=39 pos=(61.3,31.5) angle=1.31, id=55 size=24 pos=(17.7,90.4) angle=2.74, id=81 size=22 pos=(25.0,61.9) angle=1.57
+=== Step 75 ===
+test.py | status=ACTIVE | reward=0 | action=[1, 3.05, 5]; [35, 2.49, 3]; [15, -1.48, 8]; [33, -0.49, 6] | planets=6, planet_ships=27 | fleets=17, fleet_ships=151 | total_ships=178
+  Top fleets: id=71 size=25 pos=(53.6,66.7) angle=2.59, id=48 size=19 pos=(16.3,91.0) angle=2.74, id=54 size=17 pos=(17.1,57.1) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[16, -1.20, 2]; [13, -0.86, 2]; [3, -3.05, 15] | planets=9, planet_ships=84 | fleets=26, fleet_ships=337 | total_ships=421
+  Top fleets: id=93 size=39 pos=(62.1,34.3) angle=1.31, id=55 size=24 pos=(15.3,91.4) angle=2.74, id=81 size=22 pos=(25.0,64.4) angle=1.57
+=== Step 76 ===
+test.py | status=ACTIVE | reward=0 | action=[35, 2.16, 1]; [24, -1.68, 2] | planets=3, planet_ships=27 | fleets=18, fleet_ships=145 | total_ships=172
+  Top fleets: id=71 size=25 pos=(51.4,68.1) angle=2.59, id=48 size=19 pos=(14.1,91.9) angle=2.74, id=54 size=17 pos=(16.8,54.8) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[16, 1.75, 4]; [14, 2.86, 10]; [19, 2.79, 10] | planets=12, planet_ships=134 | fleets=25, fleet_ships=303 | total_ships=437
+  Top fleets: id=93 size=39 pos=(62.8,37.1) angle=1.31, id=55 size=24 pos=(13.0,92.4) angle=2.74, id=68 size=19 pos=(55.8,27.5) angle=-0.74
+=== Step 77 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=32 | fleets=17, fleet_ships=140 | total_ships=172
+  Top fleets: id=71 size=25 pos=(49.2,69.4) angle=2.59, id=48 size=19 pos=(11.9,92.8) angle=2.74, id=54 size=17 pos=(16.5,52.5) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[35, 1.68, 20]; [33, 2.77, 2]; [24, -3.05, 23]; [16, 1.91, 3] | planets=13, planet_ships=150 | fleets=24, fleet_ships=297 | total_ships=447
+  Top fleets: id=93 size=39 pos=(63.6,40.0) angle=1.31, id=110 size=23 pos=(86.5,93.4) angle=-3.05, id=108 size=20 pos=(24.6,70.8) angle=1.68
+=== Step 78 ===
+test.py | status=ACTIVE | reward=0 | action=[0, -2.24, 11] | planets=4, planet_ships=44 | fleets=15, fleet_ships=123 | total_ships=167
+  Top fleets: id=71 size=25 pos=(47.0,70.8) angle=2.59, id=54 size=17 pos=(16.2,50.2) angle=-1.71, id=87 size=13 pos=(57.7,22.1) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[35, 2.69, 1]; [13, -0.97, 8]; [32, -1.61, 6]; [12, -0.53, 18]; [25, -0.18, 10] | planets=12, planet_ships=128 | fleets=29, fleet_ships=340 | total_ships=468
+  Top fleets: id=93 size=39 pos=(64.4,42.8) angle=1.31, id=110 size=23 pos=(84.0,93.1) angle=-3.05, id=108 size=20 pos=(24.3,73.2) angle=1.68
+=== Step 79 ===
+test.py | status=ACTIVE | reward=0 | action=[25, -1.36, 13]; [1, -0.44, 7] | planets=4, planet_ships=30 | fleets=17, fleet_ships=143 | total_ships=173
+  Top fleets: id=71 size=25 pos=(44.8,72.2) angle=2.59, id=54 size=17 pos=(15.8,47.9) angle=-1.71, id=87 size=13 pos=(59.4,20.8) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[35, -2.43, 1]; [34, -1.66, 17]; [17, -1.24, 20] | planets=13, planet_ships=129 | fleets=28, fleet_ships=340 | total_ships=469
+  Top fleets: id=93 size=39 pos=(65.1,45.6) angle=1.31, id=110 size=23 pos=(81.5,92.9) angle=-3.05, id=108 size=20 pos=(24.0,75.6) angle=1.68
+=== Step 80 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=36 | fleets=17, fleet_ships=143 | total_ships=179
+  Top fleets: id=71 size=25 pos=(42.6,73.5) angle=2.59, id=54 size=17 pos=(15.5,45.7) angle=-1.71, id=87 size=13 pos=(61.2,19.6) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.39, 13]; [33, -0.46, 10] | planets=14, planet_ships=161 | fleets=28, fleet_ships=333 | total_ships=494
+  Top fleets: id=93 size=39 pos=(65.9,48.5) angle=1.31, id=110 size=23 pos=(79.0,92.7) angle=-3.05, id=122 size=20 pos=(75.2,14.9) angle=-1.24
+=== Step 81 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=31 | fleets=14, fleet_ships=134 | total_ships=165
+  Top fleets: id=71 size=25 pos=(40.4,74.9) angle=2.59, id=54 size=17 pos=(15.2,43.4) angle=-1.71, id=87 size=13 pos=(62.9,18.3) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[18, 1.74, 18]; [18, 2.29, 12]; [16, -0.32, 15] | planets=14, planet_ships=175 | fleets=28, fleet_ships=327 | total_ships=502
+  Top fleets: id=93 size=39 pos=(66.7,51.3) angle=1.31, id=122 size=20 pos=(76.0,12.6) angle=-1.24, id=68 size=19 pos=(64.6,19.5) angle=-0.74
+=== Step 82 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=39 | fleets=14, fleet_ships=134 | total_ships=173
+  Top fleets: id=71 size=25 pos=(38.1,76.2) angle=2.59, id=54 size=17 pos=(14.9,41.1) angle=-1.71, id=87 size=13 pos=(64.6,17.1) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[17, -2.60, 6]; [12, -1.08, 11]; [14, -2.22, 7]; [32, -2.44, 17]; [27, 1.51, 12]; [19, -0.63, 23]; [0, -2.74, 10] | planets=14, planet_ships=121 | fleets=32, fleet_ships=404 | total_ships=525
+  Top fleets: id=93 size=39 pos=(67.4,54.1) angle=1.31, id=133 size=23 pos=(83.3,68.7) angle=-0.63, id=122 size=20 pos=(76.8,10.4) angle=-1.24
+=== Step 83 ===
+test.py | status=ACTIVE | reward=0 | action=[15, 0.86, 28]; [1, -0.34, 4] | planets=5, planet_ships=17 | fleets=15, fleet_ships=155 | total_ships=172
+  Top fleets: id=135 size=28 pos=(71.8,71.1) angle=0.86, id=71 size=25 pos=(35.9,77.6) angle=2.59, id=54 size=17 pos=(14.5,38.8) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[35, 0.21, 5]; [3, 1.52, 4]; [27, 0.84, 7]; [24, -1.64, 9] | planets=12, planet_ships=114 | fleets=34, fleet_ships=386 | total_ships=500
+  Top fleets: id=93 size=39 pos=(68.2,57.0) angle=1.31, id=68 size=19 pos=(68.2,16.3) angle=-0.74, id=116 size=18 pos=(42.4,28.2) angle=-0.53
+=== Step 84 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=26 | fleets=15, fleet_ships=155 | total_ships=181
+  Top fleets: id=135 size=28 pos=(73.5,73.1) angle=0.86, id=71 size=25 pos=(33.7,79.0) angle=2.59, id=54 size=17 pos=(14.2,36.5) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.67, 5]; [0, 0.09, 8]; [12, -0.87, 7]; [13, -2.36, 12]; [17, -2.24, 15] | planets=13, planet_ships=94 | fleets=38, fleet_ships=416 | total_ships=510
+  Top fleets: id=93 size=39 pos=(68.9,59.8) angle=1.31, id=68 size=19 pos=(69.9,14.6) angle=-0.74, id=116 size=18 pos=(44.5,27.1) angle=-0.53
+=== Step 85 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.89, 8] | planets=6, planet_ships=52 | fleets=15, fleet_ships=135 | total_ships=187
+  Top fleets: id=71 size=25 pos=(31.5,80.3) angle=2.59, id=54 size=17 pos=(13.9,34.2) angle=-1.71, id=87 size=13 pos=(69.8,13.3) angle=-0.63
+agent1.py | status=ACTIVE | reward=0 | action=[17, -2.51, 7]; [16, 2.14, 11]; [19, 2.61, 18] | planets=12, planet_ships=80 | fleets=40, fleet_ships=437 | total_ships=517
+  Top fleets: id=93 size=39 pos=(69.7,62.6) angle=1.31, id=68 size=19 pos=(71.7,13.0) angle=-0.74, id=116 size=18 pos=(46.5,25.9) angle=-0.53
+=== Step 86 ===
+test.py | status=ACTIVE | reward=0 | action=[18, 3.03, 2]; [19, 1.45, 21]; [15, -1.52, 9] | planets=5, planet_ships=28 | fleets=17, fleet_ships=161 | total_ships=189
+  Top fleets: id=71 size=25 pos=(29.3,81.7) angle=2.59, id=151 size=21 pos=(76.4,80.4) angle=1.45, id=54 size=17 pos=(13.5,31.9) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, 2.67, 6] | planets=14, planet_ships=107 | fleets=39, fleet_ships=410 | total_ships=517
+  Top fleets: id=93 size=39 pos=(70.5,65.4) angle=1.31, id=68 size=19 pos=(73.4,11.4) angle=-0.74, id=116 size=18 pos=(48.5,24.7) angle=-0.53
+=== Step 87 ===
+test.py | status=ACTIVE | reward=0 | action=[19, -0.33, 7] | planets=5, planet_ships=32 | fleets=18, fleet_ships=168 | total_ships=200
+  Top fleets: id=71 size=25 pos=(27.1,83.0) angle=2.59, id=151 size=21 pos=(76.7,82.9) angle=1.45, id=54 size=17 pos=(13.2,29.6) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[1, -0.35, 5]; [14, 0.86, 13]; [3, 1.42, 3]; [16, 2.51, 5]; [24, -3.05, 12]; [13, -2.24, 12] | planets=14, planet_ships=81 | fleets=45, fleet_ships=460 | total_ships=541
+  Top fleets: id=93 size=39 pos=(71.2,68.3) angle=1.31, id=68 size=19 pos=(75.2,9.8) angle=-0.74, id=116 size=18 pos=(50.5,23.5) angle=-0.53
+=== Step 88 ===
+test.py | status=ACTIVE | reward=0 | action=[23, 0.98, 3]; [18, -1.73, 7]; [15, -1.39, 7] | planets=5, planet_ships=26 | fleets=21, fleet_ships=185 | total_ships=211
+  Top fleets: id=71 size=25 pos=(24.9,84.4) angle=2.59, id=151 size=21 pos=(76.9,85.3) angle=1.45, id=54 size=17 pos=(12.9,27.3) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[16, 2.54, 5]; [2, 2.79, 6] | planets=14, planet_ships=111 | fleets=46, fleet_ships=454 | total_ships=565
+  Top fleets: id=93 size=39 pos=(72.0,71.1) angle=1.31, id=68 size=19 pos=(77.0,8.2) angle=-0.74, id=116 size=18 pos=(52.6,22.3) angle=-0.53
+=== Step 89 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.32, 3]; [19, 0.11, 4]; [25, -0.51, 7] | planets=5, planet_ships=22 | fleets=23, fleet_ships=192 | total_ships=214
+  Top fleets: id=71 size=25 pos=(22.7,85.8) angle=2.59, id=151 size=21 pos=(77.2,87.7) angle=1.45, id=54 size=17 pos=(12.6,25.0) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[12, 2.78, 6]; [27, 1.45, 12]; [13, -2.16, 10]; [17, -2.35, 7] | planets=14, planet_ships=129 | fleets=47, fleet_ships=452 | total_ships=581
+  Top fleets: id=93 size=39 pos=(72.8,73.9) angle=1.31, id=116 size=18 pos=(54.6,21.1) angle=-0.53, id=149 size=18 pos=(64.7,81.8) angle=2.61
+=== Step 90 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=31 | fleets=22, fleet_ships=179 | total_ships=210
+  Top fleets: id=71 size=25 pos=(20.5,87.1) angle=2.59, id=151 size=21 pos=(77.5,90.2) angle=1.45, id=54 size=17 pos=(12.2,22.8) angle=-1.71
+agent1.py | status=ACTIVE | reward=0 | action=[16, 2.49, 6]; [17, -2.32, 7]; [2, 2.83, 9] | planets=15, planet_ships=136 | fleets=48, fleet_ships=454 | total_ships=590
+  Top fleets: id=93 size=39 pos=(73.5,76.8) angle=1.31, id=116 size=18 pos=(56.6,19.9) angle=-0.53, id=149 size=18 pos=(62.7,83.0) angle=2.61
+=== Step 91 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.52, 5]; [15, -1.25, 6] | planets=4, planet_ships=43 | fleets=22, fleet_ships=156 | total_ships=199
+  Top fleets: id=71 size=25 pos=(18.3,88.5) angle=2.59, id=54 size=17 pos=(11.9,20.5) angle=-1.71, id=86 size=12 pos=(77.3,14.5) angle=-1.50
+agent1.py | status=ACTIVE | reward=0 | action=[29, -2.19, 5]; [12, -0.68, 9]; [14, -2.05, 11] | planets=16, planet_ships=142 | fleets=47, fleet_ships=444 | total_ships=586
+  Top fleets: id=93 size=39 pos=(74.3,79.6) angle=1.31, id=116 size=18 pos=(58.7,18.7) angle=-0.53, id=149 size=18 pos=(60.7,84.2) angle=2.61
+=== Step 92 ===
+test.py | status=ACTIVE | reward=0 | action=[18, 1.21, 15]; [19, -1.78, 5] | planets=4, planet_ships=33 | fleets=24, fleet_ships=176 | total_ships=209
+  Top fleets: id=71 size=25 pos=(16.1,89.9) angle=2.59, id=54 size=17 pos=(11.6,18.2) angle=-1.71, id=181 size=15 pos=(17.8,67.9) angle=1.21
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.67, 5]; [16, 2.70, 5]; [20, -1.99, 3]; [24, -1.77, 10]; [1, -1.68, 8]; [13, -3.03, 7] | planets=16, planet_ships=130 | fleets=52, fleet_ships=477 | total_ships=607
+  Top fleets: id=93 size=39 pos=(75.1,82.4) angle=1.31, id=116 size=18 pos=(60.7,17.5) angle=-0.53, id=149 size=18 pos=(58.6,85.4) angle=2.61
+=== Step 93 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.31, 4]; [15, -1.46, 8] | planets=4, planet_ships=31 | fleets=26, fleet_ships=188 | total_ships=219
+  Top fleets: id=71 size=25 pos=(13.9,91.2) angle=2.59, id=54 size=17 pos=(11.3,15.9) angle=-1.71, id=181 size=15 pos=(18.5,70.0) angle=1.21
+agent1.py | status=ACTIVE | reward=0 | action=[16, 3.05, 4]; [20, -1.95, 3]; [14, 2.70, 7]; [23, -1.23, 5] | planets=16, planet_ships=160 | fleets=53, fleet_ships=466 | total_ships=626
+  Top fleets: id=93 size=39 pos=(75.8,85.3) angle=1.31, id=116 size=18 pos=(62.7,16.3) angle=-0.53, id=121 size=17 pos=(79.6,29.1) angle=-1.66
+=== Step 94 ===
+test.py | status=ACTIVE | reward=0 | action=[31, -1.53, 3]; [19, -1.40, 5] | planets=5, planet_ships=34 | fleets=26, fleet_ships=169 | total_ships=203
+  Top fleets: id=71 size=25 pos=(11.7,92.6) angle=2.59, id=54 size=17 pos=(10.9,13.6) angle=-1.71, id=152 size=9 pos=(67.6,50.2) angle=-1.52
+agent1.py | status=ACTIVE | reward=0 | action=[23, -1.56, 18]; [16, -2.51, 3]; [21, -1.46, 3] | planets=17, planet_ships=181 | fleets=53, fleet_ships=457 | total_ships=638
+  Top fleets: id=93 size=39 pos=(76.6,88.1) angle=1.31, id=116 size=18 pos=(64.7,15.1) angle=-0.53, id=197 size=18 pos=(55.9,83.6) angle=-1.56
+=== Step 95 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.37, 5] | planets=5, planet_ships=40 | fleets=26, fleet_ships=149 | total_ships=189
+  Top fleets: id=54 size=17 pos=(10.6,11.3) angle=-1.71, id=152 size=9 pos=(67.7,48.3) angle=-1.52, id=53 size=8 pos=(77.8,27.5) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[12, 2.50, 12]; [16, -2.47, 3]; [21, 1.84, 12]; [17, 1.71, 11] | planets=17, planet_ships=149 | fleets=56, fleet_ships=491 | total_ships=640
+  Top fleets: id=93 size=39 pos=(77.4,90.9) angle=1.31, id=116 size=18 pos=(66.8,13.9) angle=-0.53, id=197 size=18 pos=(55.9,81.2) angle=-1.56
+=== Step 96 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=5, planet_ships=51 | fleets=26, fleet_ships=149 | total_ships=200
+  Top fleets: id=54 size=17 pos=(10.3,9.0) angle=-1.71, id=152 size=9 pos=(67.8,46.4) angle=-1.52, id=53 size=8 pos=(77.8,25.7) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.70, 9]; [16, -2.43, 3] | planets=17, planet_ships=210 | fleets=56, fleet_ships=457 | total_ships=667
+  Top fleets: id=116 size=18 pos=(68.8,12.7) angle=-0.53, id=197 size=18 pos=(55.9,78.8) angle=-1.56, id=94 size=15 pos=(64.4,17.4) angle=-0.41
+=== Step 97 ===
+test.py | status=ACTIVE | reward=0 | action=[18, -1.01, 3] | planets=4, planet_ships=42 | fleets=26, fleet_ships=135 | total_ships=177
+  Top fleets: id=152 size=9 pos=(67.9,44.5) angle=-1.52, id=53 size=8 pos=(77.8,23.9) angle=-1.57, id=98 size=8 pos=(77.0,16.9) angle=-1.48
+agent1.py | status=ACTIVE | reward=0 | action=[0, -2.92, 38]; [16, -2.40, 3] | planets=18, planet_ships=180 | fleets=56, fleet_ships=468 | total_ships=648
+  Top fleets: id=208 size=38 pos=(73.9,91.7) angle=-2.92, id=116 size=18 pos=(70.8,11.6) angle=-0.53, id=94 size=15 pos=(66.4,16.5) angle=-0.41
+=== Step 98 ===
+test.py | status=ACTIVE | reward=0 | action=[19, -2.42, 14]; [18, -1.25, 5] | planets=4, planet_ships=29 | fleets=27, fleet_ships=147 | total_ships=176
+  Top fleets: id=210 size=14 pos=(58.2,81.7) angle=-2.42, id=152 size=9 pos=(68.0,42.6) angle=-1.52, id=53 size=8 pos=(77.8,22.1) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[16, -2.36, 3] | planets=18, planet_ships=237 | fleets=53, fleet_ships=432 | total_ships=669
+  Top fleets: id=208 size=38 pos=(71.0,91.1) angle=-2.92, id=116 size=18 pos=(72.9,10.4) angle=-0.53, id=94 size=15 pos=(68.5,15.6) angle=-0.41
+=== Step 99 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=39 | fleets=26, fleet_ships=143 | total_ships=182
+  Top fleets: id=210 size=14 pos=(56.6,80.3) angle=-2.42, id=152 size=9 pos=(68.1,40.7) angle=-1.52, id=53 size=8 pos=(77.8,20.2) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[23, -0.19, 20]; [16, -2.32, 3]; [27, 1.31, 15]; [17, 1.75, 11]; [13, 1.51, 12] | planets=19, planet_ships=209 | fleets=56, fleet_ships=484 | total_ships=693
+  Top fleets: id=208 size=38 pos=(68.2,90.4) angle=-2.92, id=213 size=20 pos=(52.0,86.8) angle=-0.19, id=116 size=18 pos=(74.9,9.2) angle=-0.53
+=== Step 100 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=4, planet_ships=39 | fleets=25, fleet_ships=135 | total_ships=174
+  Top fleets: id=210 size=14 pos=(54.9,78.9) angle=-2.42, id=152 size=9 pos=(68.2,38.8) angle=-1.52, id=53 size=8 pos=(77.8,18.4) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[20, -1.68, 3] | planets=19, planet_ships=243 | fleets=54, fleet_ships=461 | total_ships=704
+  Top fleets: id=208 size=38 pos=(65.3,89.8) angle=-2.92, id=213 size=20 pos=(54.4,86.3) angle=-0.19, id=116 size=18 pos=(76.9,8.0) angle=-0.53
+=== Step 101 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=30 | fleets=23, fleet_ships=130 | total_ships=160
+  Top fleets: id=210 size=14 pos=(53.3,77.4) angle=-2.42, id=152 size=9 pos=(68.3,37.0) angle=-1.52, id=53 size=8 pos=(77.8,16.6) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[12, 2.47, 11] | planets=20, planet_ships=311 | fleets=50, fleet_ships=403 | total_ships=714
+  Top fleets: id=208 size=38 pos=(62.5,89.2) angle=-2.92, id=94 size=15 pos=(74.6,13.0) angle=-0.41, id=127 size=15 pos=(66.2,14.3) angle=-0.32
+=== Step 102 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=51 | fleets=21, fleet_ships=108 | total_ships=159
+  Top fleets: id=152 size=9 pos=(68.4,35.1) angle=-1.52, id=53 size=8 pos=(77.8,14.8) angle=-1.57, id=190 size=8 pos=(63.0,52.8) angle=-1.46
+agent1.py | status=ACTIVE | reward=0 | action=[14, -2.51, 19]; [2, 2.54, 13]; [20, 1.89, 20]; [17, 1.77, 11] | planets=20, planet_ships=290 | fleets=51, fleet_ships=445 | total_ships=735
+  Top fleets: id=208 size=38 pos=(59.7,88.5) angle=-2.92, id=222 size=20 pos=(54.6,16.3) angle=1.89, id=220 size=19 pos=(20.9,49.4) angle=-2.51
+=== Step 103 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=3, planet_ships=58 | fleets=20, fleet_ships=107 | total_ships=165
+  Top fleets: id=152 size=9 pos=(68.5,33.2) angle=-1.52, id=53 size=8 pos=(77.8,12.9) angle=-1.57, id=190 size=8 pos=(63.2,51.0) angle=-1.46
+agent1.py | status=ACTIVE | reward=0 | action=[25, -0.09, 11] | planets=20, planet_ships=325 | fleets=49, fleet_ships=429 | total_ships=754
+  Top fleets: id=208 size=38 pos=(56.8,87.9) angle=-2.92, id=222 size=20 pos=(53.9,18.6) angle=1.89, id=220 size=19 pos=(19.0,47.9) angle=-2.51
+=== Step 104 ===
+test.py | status=ACTIVE | reward=0 | action=[15, 2.76, 19] | planets=3, planet_ships=46 | fleets=20, fleet_ships=120 | total_ships=166
+  Top fleets: id=225 size=19 pos=(45.8,77.2) angle=2.76, id=152 size=9 pos=(68.6,31.3) angle=-1.52, id=53 size=8 pos=(77.8,11.1) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[2, -0.09, 9]; [13, 1.52, 16] | planets=20, planet_ships=378 | fleets=47, fleet_ships=398 | total_ships=776
+  Top fleets: id=222 size=20 pos=(53.1,20.9) angle=1.89, id=220 size=19 pos=(17.0,46.5) angle=-2.51, id=227 size=16 pos=(75.7,54.4) angle=1.52
+=== Step 105 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=36 | fleets=19, fleet_ships=113 | total_ships=149
+  Top fleets: id=225 size=19 pos=(43.6,78.1) angle=2.76, id=152 size=9 pos=(68.7,29.4) angle=-1.52, id=53 size=8 pos=(77.8,9.3) angle=-1.57
+agent1.py | status=ACTIVE | reward=0 | action=[19, -2.03, 43]; [21, 2.21, 11]; [16, 2.91, 11]; [12, 2.62, 11]; [17, 1.79, 14]; [13, 1.52, 11] | planets=21, planet_ships=346 | fleets=47, fleet_ships=422 | total_ships=768
+  Top fleets: id=228 size=43 pos=(49.4,81.8) angle=-2.03, id=227 size=16 pos=(75.9,56.6) angle=1.52, id=94 size=15 pos=(82.8,9.5) angle=-0.41
+=== Step 106 ===
+test.py | status=ACTIVE | reward=0 | action=[15, 2.84, 19] | planets=2, planet_ships=21 | fleets=18, fleet_ships=122 | total_ships=143
+  Top fleets: id=225 size=19 pos=(41.4,79.0) angle=2.76, id=234 size=19 pos=(43.7,76.8) angle=2.84, id=152 size=9 pos=(68.8,27.5) angle=-1.52
+agent1.py | status=ACTIVE | reward=0 | action=[3, 1.67, 10]; [20, 1.53, 16]; [30, 0.65, 12]; [22, 1.32, 11] | planets=21, planet_ships=322 | fleets=50, fleet_ships=466 | total_ships=788
+  Top fleets: id=228 size=43 pos=(48.1,79.1) angle=-2.03, id=227 size=16 pos=(76.0,58.9) angle=1.52, id=236 size=16 pos=(61.6,17.7) angle=1.53
+=== Step 107 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=19 | fleets=18, fleet_ships=122 | total_ships=141
+  Top fleets: id=225 size=19 pos=(39.2,79.9) angle=2.76, id=234 size=19 pos=(41.5,77.5) angle=2.84, id=152 size=9 pos=(68.9,25.6) angle=-1.52
+agent1.py | status=ACTIVE | reward=0 | action=[28, 2.01, 10]; [18, 1.40, 10]; [13, 1.51, 10]; [1, -1.00, 13] | planets=22, planet_ships=365 | fleets=48, fleet_ships=434 | total_ships=799
+  Top fleets: id=227 size=16 pos=(76.1,61.2) angle=1.52, id=236 size=16 pos=(61.6,20.0) angle=1.53, id=94 size=15 pos=(86.9,7.7) angle=-0.41
+=== Step 108 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=20 | fleets=18, fleet_ships=122 | total_ships=142
+  Top fleets: id=225 size=19 pos=(37.0,80.8) angle=2.76, id=234 size=19 pos=(39.2,78.2) angle=2.84, id=152 size=9 pos=(69.0,23.7) angle=-1.52
+agent1.py | status=ACTIVE | reward=0 | action=[15, 1.28, 31]; [14, 1.15, 14] | planets=22, planet_ships=407 | fleets=45, fleet_ships=427 | total_ships=834
+  Top fleets: id=243 size=31 pos=(47.6,79.9) angle=1.28, id=227 size=16 pos=(76.2,63.4) angle=1.52, id=236 size=16 pos=(61.7,22.2) angle=1.53
+=== Step 109 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=21 | fleets=17, fleet_ships=115 | total_ships=136
+  Top fleets: id=225 size=19 pos=(34.7,81.7) angle=2.76, id=234 size=19 pos=(36.9,79.0) angle=2.84, id=152 size=9 pos=(69.1,21.8) angle=-1.52
+agent1.py | status=ACTIVE | reward=0 | action=[16, 2.44, 11]; [20, 1.54, 16]; [30, 0.77, 16]; [12, 1.29, 24]; [17, 1.79, 17] | planets=23, planet_ships=355 | fleets=48, fleet_ships=487 | total_ships=842
+  Top fleets: id=243 size=31 pos=(48.4,82.6) angle=1.28, id=248 size=24 pos=(56.2,29.5) angle=1.29, id=249 size=17 pos=(84.1,64.3) angle=1.79
+=== Step 110 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=2, planet_ships=27 | fleets=16, fleet_ships=96 | total_ships=123
+  Top fleets: id=234 size=19 pos=(34.6,79.7) angle=2.84, id=152 size=9 pos=(69.2,19.9) angle=-1.52, id=190 size=8 pos=(64.7,38.3) angle=-1.46
+agent1.py | status=ACTIVE | reward=0 | action=[19, 0.46, 25] | planets=22, planet_ships=364 | fleets=46, fleet_ships=490 | total_ships=854
+  Top fleets: id=243 size=31 pos=(49.1,85.2) angle=1.28, id=250 size=25 pos=(49.0,88.2) angle=0.46, id=248 size=24 pos=(56.9,32.0) angle=1.29
+=== Step 111 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=6 | fleets=15, fleet_ships=87 | total_ships=93
+  Top fleets: id=234 size=19 pos=(32.3,80.4) angle=2.84, id=190 size=8 pos=(64.9,36.5) angle=-1.46, id=163 size=7 pos=(73.0,27.3) angle=-1.39
+agent1.py | status=ACTIVE | reward=0 | action=[1, -1.40, 14]; [18, 1.10, 11]; [14, 1.29, 11]; [13, 1.48, 10]; [24, -3.05, 10] | planets=23, planet_ships=362 | fleets=48, fleet_ships=498 | total_ships=860
+  Top fleets: id=243 size=31 pos=(49.9,87.9) angle=1.28, id=248 size=24 pos=(57.6,34.4) angle=1.29, id=249 size=17 pos=(83.1,68.8) angle=1.79
+=== Step 112 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=13 | fleets=14, fleet_ships=68 | total_ships=81
+  Top fleets: id=190 size=8 pos=(65.1,34.7) angle=-1.46, id=163 size=7 pos=(73.3,25.6) angle=-1.39, id=177 size=6 pos=(74.8,35.6) angle=-1.25
+agent1.py | status=ACTIVE | reward=0 | action=[14, 1.80, 22]; [16, 2.56, 10]; [21, 1.81, 10]; [12, 2.88, 15]; [17, 3.09, 15]; [29, -3.11, 20]; [0, -2.78, 14] | planets=23, planet_ships=363 | fleets=47, fleet_ships=512 | total_ships=875
+  Top fleets: id=248 size=24 pos=(58.3,36.9) angle=1.29, id=256 size=22 pos=(24.7,46.9) angle=1.80, id=261 size=20 pos=(77.8,74.5) angle=-3.11
+=== Step 113 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=14 | fleets=14, fleet_ships=68 | total_ships=82
+  Top fleets: id=190 size=8 pos=(65.3,32.9) angle=-1.46, id=163 size=7 pos=(73.6,23.8) angle=-1.39, id=177 size=6 pos=(75.3,34.0) angle=-1.25
+agent1.py | status=ACTIVE | reward=0 | action=[31, -2.52, 30]; [26, 1.96, 17]; [29, -3.00, 14] | planets=23, planet_ships=362 | fleets=45, fleet_ships=539 | total_ships=901
+  Top fleets: id=263 size=30 pos=(47.4,87.6) angle=-2.52, id=248 size=24 pos=(59.0,39.4) angle=1.29, id=256 size=22 pos=(24.1,49.3) angle=1.80
+=== Step 114 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=15 | fleets=14, fleet_ships=68 | total_ships=83
+  Top fleets: id=190 size=8 pos=(65.5,31.1) angle=-1.46, id=163 size=7 pos=(73.9,22.1) angle=-1.39, id=177 size=6 pos=(75.9,32.4) angle=-1.25
+agent1.py | status=ACTIVE | reward=0 | action=[2, 1.86, 10]; [30, 0.96, 15]; [18, 1.22, 10]; [14, 1.40, 10] | planets=23, planet_ships=372 | fleets=45, fleet_ships=555 | total_ships=927
+  Top fleets: id=263 size=30 pos=(45.2,86.0) angle=-2.52, id=248 size=24 pos=(59.8,41.8) angle=1.29, id=256 size=22 pos=(23.5,51.7) angle=1.80
+=== Step 115 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=16 | fleets=13, fleet_ships=61 | total_ships=77
+  Top fleets: id=190 size=8 pos=(65.7,29.3) angle=-1.46, id=177 size=6 pos=(76.4,30.8) angle=-1.25, id=72 size=5 pos=(13.6,21.7) angle=-2.75
+agent1.py | status=ACTIVE | reward=0 | action=[24, -2.47, 11]; [12, 3.01, 11]; [14, 1.42, 16] | planets=23, planet_ships=382 | fleets=47, fleet_ships=577 | total_ships=959
+  Top fleets: id=263 size=30 pos=(43.0,84.4) angle=-2.52, id=248 size=24 pos=(60.5,44.3) angle=1.29, id=256 size=22 pos=(23.0,54.2) angle=1.80
+=== Step 116 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=3 | fleets=13, fleet_ships=61 | total_ships=64
+  Top fleets: id=190 size=8 pos=(65.9,27.4) angle=-1.46, id=177 size=6 pos=(76.9,29.3) angle=-1.25, id=72 size=5 pos=(12.2,21.1) angle=-2.75
+agent1.py | status=ACTIVE | reward=0 | action=[27, 0.61, 10]; [16, 2.71, 11]; [3, 1.39, 10]; [17, -2.96, 11]; [29, -2.92, 16]; [22, 0.98, 10] | planets=23, planet_ships=374 | fleets=50, fleet_ships=610 | total_ships=984
+  Top fleets: id=263 size=30 pos=(40.7,82.8) angle=-2.52, id=248 size=24 pos=(61.2,46.7) angle=1.29, id=256 size=22 pos=(22.4,56.6) angle=1.80
+=== Step 117 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=4 | fleets=13, fleet_ships=61 | total_ships=65
+  Top fleets: id=190 size=8 pos=(66.1,25.6) angle=-1.46, id=177 size=6 pos=(77.5,27.7) angle=-1.25, id=72 size=5 pos=(10.7,20.5) angle=-2.75
+agent1.py | status=ACTIVE | reward=0 | action=[15, -3.02, 22]; [28, 2.40, 10]; [0, -2.61, 14]; [13, -3.11, 27]; [14, 1.50, 16]; [25, -0.09, 13] | planets=23, planet_ships=311 | fleets=56, fleet_ships=712 | total_ships=1023
+  Top fleets: id=263 size=30 pos=(38.5,81.2) angle=-2.52, id=282 size=27 pos=(67.5,62.1) angle=-3.11, id=248 size=24 pos=(61.9,49.2) angle=1.29
+=== Step 118 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=5 | fleets=13, fleet_ships=61 | total_ships=66
+  Top fleets: id=190 size=8 pos=(66.3,23.8) angle=-1.46, id=177 size=6 pos=(78.0,26.1) angle=-1.25, id=72 size=5 pos=(9.3,20.0) angle=-2.75
+agent1.py | status=ACTIVE | reward=0 | action=[18, 1.76, 19]; [19, -2.41, 25]; [12, 3.13, 10]; [17, -2.88, 11]; [29, -2.69, 10] | planets=23, planet_ships=289 | fleets=59, fleet_ships=761 | total_ships=1050
+  Top fleets: id=263 size=30 pos=(36.3,79.6) angle=-2.52, id=282 size=27 pos=(64.9,62.1) angle=-3.11, id=286 size=25 pos=(30.3,79.5) angle=-2.41
+=== Step 119 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=6 | fleets=11, fleet_ships=50 | total_ships=56
+  Top fleets: id=190 size=8 pos=(66.5,22.0) angle=-1.46, id=176 size=5 pos=(19.1,17.6) angle=-1.52, id=182 size=5 pos=(59.6,36.1) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.10, 17]; [15, -2.94, 23]; [26, 1.63, 10]; [16, 2.83, 10] | planets=23, planet_ships=307 | fleets=59, fleet_ships=776 | total_ships=1083
+  Top fleets: id=263 size=30 pos=(34.1,78.0) angle=-2.52, id=282 size=27 pos=(62.2,62.0) angle=-3.11, id=286 size=25 pos=(28.4,77.8) angle=-2.41
+=== Step 120 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=7 | fleets=11, fleet_ships=50 | total_ships=57
+  Top fleets: id=190 size=8 pos=(66.7,20.2) angle=-1.46, id=176 size=5 pos=(19.2,16.0) angle=-1.52, id=182 size=5 pos=(59.3,34.6) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[14, 2.11, 28]; [0, -2.53, 14] | planets=23, planet_ships=327 | fleets=59, fleet_ships=795 | total_ships=1122
+  Top fleets: id=263 size=30 pos=(31.9,76.4) angle=-2.52, id=294 size=28 pos=(26.7,39.4) angle=2.11, id=282 size=27 pos=(59.6,61.9) angle=-3.11
+=== Step 121 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=1, planet_ships=8 | fleets=10, fleet_ships=46 | total_ships=54
+  Top fleets: id=190 size=8 pos=(67.0,18.4) angle=-1.46, id=176 size=5 pos=(19.2,14.5) angle=-1.52, id=182 size=5 pos=(59.0,33.0) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[15, -2.45, 5]; [30, 2.05, 13]; [0, -2.49, 14]; [13, -2.96, 24]; [18, 1.48, 11]; [1, -1.63, 10] | planets=23, planet_ships=318 | fleets=62, fleet_ships=839 | total_ships=1157
+  Top fleets: id=263 size=30 pos=(29.6,74.9) angle=-2.52, id=294 size=28 pos=(25.4,41.7) angle=2.11, id=282 size=27 pos=(56.9,61.8) angle=-3.11
+=== Step 122 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(67.2,16.6) angle=-1.46, id=176 size=5 pos=(19.3,12.9) angle=-1.52, id=182 size=5 pos=(58.6,31.5) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[22, 1.71, 13]; [12, -3.00, 11]; [0, -2.48, 14]; [1, -1.67, 13] | planets=24, planet_ships=418 | fleets=57, fleet_ships=769 | total_ships=1187
+  Top fleets: id=263 size=30 pos=(27.4,73.3) angle=-2.52, id=294 size=28 pos=(24.0,44.0) angle=2.11, id=282 size=27 pos=(54.3,61.8) angle=-3.11
+=== Step 123 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(67.4,14.8) angle=-1.46, id=176 size=5 pos=(19.4,11.4) angle=-1.52, id=182 size=5 pos=(58.3,30.0) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[15, 2.54, 11]; [13, 1.45, 21]; [14, -1.69, 21]; [19, 1.07, 13]; [16, -2.07, 11]; [18, -0.57, 17]; [17, 2.65, 11]; [20, -2.15, 12]; [0, -2.49, 17] | planets=24, planet_ships=370 | fleets=63, fleet_ships=857 | total_ships=1227
+  Top fleets: id=263 size=30 pos=(25.2,71.7) angle=-2.52, id=294 size=28 pos=(22.6,46.3) angle=2.11, id=282 size=27 pos=(51.6,61.7) angle=-3.11
+=== Step 124 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(67.6,12.9) angle=-1.46, id=176 size=5 pos=(19.5,9.8) angle=-1.52, id=182 size=5 pos=(58.0,28.5) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[14, -1.56, 10]; [18, -0.54, 17]; [21, 2.84, 13]; [23, 0.99, 22] | planets=24, planet_ships=419 | fleets=63, fleet_ships=848 | total_ships=1267
+  Top fleets: id=263 size=30 pos=(23.0,70.1) angle=-2.52, id=294 size=28 pos=(21.3,48.6) angle=2.11, id=282 size=27 pos=(49.0,61.6) angle=-3.11
+=== Step 125 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(67.8,11.1) angle=-1.46, id=176 size=5 pos=(19.6,8.2) angle=-1.52, id=182 size=5 pos=(57.7,26.9) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[13, -1.62, 43]; [12, -0.52, 10]; [17, 2.67, 15]; [23, 0.66, 24]; [0, -3.05, 14]; [1, -1.23, 14]; [2, 1.91, 11] | planets=24, planet_ships=449 | fleets=60, fleet_ships=858 | total_ships=1307
+  Top fleets: id=319 size=43 pos=(67.3,63.3) angle=-1.62, id=263 size=30 pos=(20.8,68.5) angle=-2.52, id=294 size=28 pos=(19.9,50.9) angle=2.11
+=== Step 126 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(68.0,9.3) angle=-1.46, id=176 size=5 pos=(19.6,6.7) angle=-1.52, id=182 size=5 pos=(57.3,25.4) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[27, -0.08, 17]; [15, -1.50, 54]; [14, -1.48, 14]; [18, -0.38, 10]; [16, -1.95, 17]; [19, 1.19, 10]; [23, 0.70, 24]; [0, -3.03, 13]; [3, 0.15, 10]; [28, -0.69, 16]; [31, 2.45, 18] | planets=24, planet_ships=392 | fleets=64, fleet_ships=955 | total_ships=1347
+  Top fleets: id=327 size=54 pos=(31.2,61.4) angle=-1.50, id=319 size=43 pos=(67.2,60.3) angle=-1.62, id=263 size=30 pos=(18.6,66.9) angle=-2.52
+=== Step 127 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=10, fleet_ships=46 | total_ships=46
+  Top fleets: id=190 size=8 pos=(68.2,7.5) angle=-1.46, id=176 size=5 pos=(19.7,5.1) angle=-1.52, id=182 size=5 pos=(57.0,23.9) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[18, 1.49, 41]; [19, -1.41, 43]; [14, -1.45, 14]; [12, -0.44, 14]; [17, 2.69, 22]; [23, 1.80, 10]; [24, -2.74, 11]; [25, -1.33, 11] | planets=24, planet_ships=346 | fleets=68, fleet_ships=1041 | total_ships=1387
+  Top fleets: id=327 size=54 pos=(31.5,58.2) angle=-1.50, id=319 size=43 pos=(67.0,57.3) angle=-1.62, id=338 size=43 pos=(24.5,70.1) angle=-1.41
+=== Step 128 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=9, fleet_ships=41 | total_ships=41
+  Top fleets: id=190 size=8 pos=(68.4,5.7) angle=-1.46, id=176 size=5 pos=(19.8,3.6) angle=-1.52, id=182 size=5 pos=(56.7,22.3) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[14, -0.75, 12]; [23, -1.26, 38]; [15, 2.74, 13]; [17, 2.84, 11]; [19, 2.15, 16]; [16, -0.99, 11]; [21, 3.08, 10]; [0, -2.96, 12] | planets=24, planet_ships=349 | fleets=68, fleet_ships=1062 | total_ships=1411
+  Top fleets: id=327 size=54 pos=(31.7,55.1) angle=-1.50, id=319 size=43 pos=(66.9,54.3) angle=-1.62, id=338 size=43 pos=(25.0,67.1) angle=-1.41
+=== Step 129 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=9, fleet_ships=41 | total_ships=41
+  Top fleets: id=190 size=8 pos=(68.6,3.9) angle=-1.46, id=176 size=5 pos=(19.9,2.0) angle=-1.52, id=182 size=5 pos=(56.4,20.8) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[28, -2.75, 31]; [15, 2.65, 19]; [31, 2.57, 15]; [19, 0.65, 23]; [26, 1.67, 10] | planets=24, planet_ships=386 | fleets=65, fleet_ships=1065 | total_ships=1451
+  Top fleets: id=327 size=54 pos=(31.9,51.9) angle=-1.50, id=319 size=43 pos=(66.7,51.3) angle=-1.62, id=338 size=43 pos=(25.5,64.2) angle=-1.41
+=== Step 130 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=8, fleet_ships=38 | total_ships=38
+  Top fleets: id=190 size=8 pos=(68.8,2.1) angle=-1.46, id=176 size=5 pos=(19.9,0.4) angle=-1.52, id=182 size=5 pos=(56.0,19.3) angle=-1.78
+agent1.py | status=ACTIVE | reward=0 | action=[27, -0.16, 4]; [25, 0.16, 8]; [15, 1.37, 16]; [13, 2.39, 31]; [12, -0.33, 11]; [14, -1.42, 22]; [31, 1.91, 15]; [19, 0.69, 25]; [16, -2.40, 11]; [18, -0.22, 11] | planets=24, planet_ships=367 | fleets=69, fleet_ships=1121 | total_ships=1488
+  Top fleets: id=327 size=54 pos=(32.2,48.7) angle=-1.50, id=319 size=43 pos=(66.6,48.3) angle=-1.62, id=338 size=43 pos=(26.0,61.2) angle=-1.41
+=== Step 131 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=7, fleet_ships=33 | total_ships=33
+  Top fleets: id=190 size=8 pos=(69.0,0.2) angle=-1.46, id=182 size=5 pos=(55.7,17.8) angle=-1.78, id=200 size=5 pos=(27.0,1.0) angle=-1.37
+agent1.py | status=ACTIVE | reward=0 | action=[2, -3.02, 29]; [14, -1.29, 11]; [23, 1.05, 24]; [19, 0.78, 11]; [16, -2.36, 13]; [18, -0.24, 15] | planets=24, planet_ships=387 | fleets=69, fleet_ships=1141 | total_ships=1528
+  Top fleets: id=327 size=54 pos=(32.4,45.5) angle=-1.50, id=319 size=43 pos=(66.5,45.3) angle=-1.62, id=338 size=43 pos=(26.4,58.2) angle=-1.41
+=== Step 132 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=5, fleet_ships=20 | total_ships=20
+  Top fleets: id=182 size=5 pos=(55.4,16.2) angle=-1.78, id=211 size=5 pos=(31.9,1.6) angle=-1.25, id=189 size=4 pos=(31.1,4.3) angle=-1.31
+agent1.py | status=ACTIVE | reward=0 | action=[26, -2.98, 6]; [16, -2.10, 11]; [19, 1.05, 43]; [30, -2.41, 24]; [18, -1.58, 27]; [20, -2.05, 10]; [22, -2.35, 10] | planets=24, planet_ships=363 | fleets=72, fleet_ships=1205 | total_ships=1568
+  Top fleets: id=327 size=54 pos=(32.6,42.3) angle=-1.50, id=319 size=43 pos=(66.3,42.3) angle=-1.62, id=338 size=43 pos=(26.9,55.3) angle=-1.41
+=== Step 133 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=5, fleet_ships=20 | total_ships=20
+  Top fleets: id=182 size=5 pos=(55.1,14.7) angle=-1.78, id=211 size=5 pos=(32.4,0.1) angle=-1.25, id=189 size=4 pos=(31.5,2.9) angle=-1.31
+agent1.py | status=ACTIVE | reward=0 | action=[15, 2.80, 22]; [14, -1.21, 14]; [23, 1.13, 18] | planets=24, planet_ships=417 | fleets=71, fleet_ships=1191 | total_ships=1608
+  Top fleets: id=327 size=54 pos=(32.9,39.1) angle=-1.50, id=319 size=43 pos=(66.2,39.3) angle=-1.62, id=338 size=43 pos=(27.4,52.3) angle=-1.41
+=== Step 134 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=4, fleet_ships=15 | total_ships=15
+  Top fleets: id=182 size=5 pos=(54.7,13.2) angle=-1.78, id=189 size=4 pos=(31.8,1.5) angle=-1.31, id=166 size=3 pos=(33.7,6.8) angle=-1.32
+agent1.py | status=ACTIVE | reward=0 | action=[12, -0.17, 11]; [15, 2.97, 10]; [14, -1.17, 14]; [16, -1.28, 10]; [19, 1.86, 18] | planets=24, planet_ships=472 | fleets=70, fleet_ships=1176 | total_ships=1648
+  Top fleets: id=327 size=54 pos=(33.1,35.9) angle=-1.50, id=319 size=43 pos=(66.0,36.3) angle=-1.62, id=338 size=43 pos=(27.9,49.3) angle=-1.41
+=== Step 135 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=4, fleet_ships=15 | total_ships=15
+  Top fleets: id=182 size=5 pos=(54.4,11.7) angle=-1.78, id=189 size=4 pos=(32.2,0.1) angle=-1.31, id=166 size=3 pos=(34.1,5.5) angle=-1.32
+agent1.py | status=ACTIVE | reward=0 | action=[1, -2.48, 63]; [29, 0.52, 73]; [16, -1.61, 12] | planets=25, planet_ships=427 | fleets=67, fleet_ships=1211 | total_ships=1638
+  Top fleets: id=390 size=73 pos=(54.4,92.1) angle=0.52, id=389 size=63 pos=(18.7,89.8) angle=-2.48, id=327 size=54 pos=(33.3,32.8) angle=-1.50
+=== Step 136 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=3, fleet_ships=11 | total_ships=11
+  Top fleets: id=182 size=5 pos=(54.1,10.1) angle=-1.78, id=166 size=3 pos=(34.4,4.2) angle=-1.32, id=207 size=3 pos=(43.5,10.6) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[19, -1.77, 58]; [15, 3.05, 14]; [18, -0.13, 27]; [13, 2.05, 11]; [3, -3.05, 10] | planets=25, planet_ships=405 | fleets=68, fleet_ships=1276 | total_ships=1681
+  Top fleets: id=390 size=73 pos=(57.4,93.8) angle=0.52, id=389 size=63 pos=(16.1,87.8) angle=-2.48, id=392 size=58 pos=(15.5,59.4) angle=-1.77
+=== Step 137 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(53.8,8.6) angle=-1.78, id=207 size=3 pos=(44.2,9.5) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[14, -1.99, 11]; [12, -0.06, 10]; [15, 2.96, 22]; [23, 1.28, 13]; [18, 0.02, 13]; [13, 2.08, 12] | planets=25, planet_ships=483 | fleets=65, fleet_ships=1238 | total_ships=1721
+  Top fleets: id=390 size=73 pos=(60.4,95.5) angle=0.52, id=389 size=63 pos=(13.5,85.7) angle=-2.48, id=392 size=58 pos=(14.9,56.2) angle=-1.77
+=== Step 138 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(53.4,7.1) angle=-1.78, id=207 size=3 pos=(44.9,8.3) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[17, 2.62, 19]; [25, 0.16, 42]; [26, -2.98, 21]; [18, -0.52, 25]; [15, 3.12, 11]; [16, -1.49, 17] | planets=26, planet_ships=486 | fleets=65, fleet_ships=1207 | total_ships=1693
+  Top fleets: id=389 size=63 pos=(10.9,83.7) angle=-2.48, id=392 size=58 pos=(14.2,53.0) angle=-1.77, id=327 size=54 pos=(34.0,23.2) angle=-1.50
+=== Step 139 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(53.1,5.5) angle=-1.78, id=207 size=3 pos=(45.6,7.2) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[29, 2.37, 48]; [21, 0.66, 27]; [17, -3.04, 13]; [18, 0.13, 10]; [19, 1.69, 11]; [0, 0.09, 17] | planets=27, planet_ships=510 | fleets=64, fleet_ships=1173 | total_ships=1683
+  Top fleets: id=392 size=58 pos=(13.6,49.8) angle=-1.77, id=327 size=54 pos=(34.3,20.0) angle=-1.50, id=409 size=48 pos=(41.3,92.3) angle=2.37
+=== Step 140 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(52.8,4.0) angle=-1.78, id=207 size=3 pos=(46.3,6.1) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[19, -1.75, 60]; [29, -0.16, 61]; [31, 1.29, 24]; [13, 2.20, 10]; [21, -3.11, 11]; [16, -1.41, 10]; [17, -3.00, 14] | planets=27, planet_ships=490 | fleets=64, fleet_ships=1214 | total_ships=1704
+  Top fleets: id=416 size=61 pos=(47.1,88.4) angle=-0.16, id=415 size=60 pos=(13.7,54.0) angle=-1.75, id=327 size=54 pos=(34.5,16.8) angle=-1.50
+=== Step 141 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(52.5,2.5) angle=-1.78, id=207 size=3 pos=(47.0,5.0) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[28, 1.42, 57]; [30, 2.99, 59]; [23, -1.77, 70]; [31, 1.27, 10]; [12, 0.10, 11]; [14, -0.90, 11]; [16, -1.37, 12]; [17, -2.96, 14] | planets=28, planet_ships=471 | fleets=61, fleet_ships=1211 | total_ships=1682
+  Top fleets: id=424 size=70 pos=(11.8,41.9) angle=-1.77, id=415 size=60 pos=(13.2,50.7) angle=-1.75, id=423 size=59 pos=(54.4,11.8) angle=2.99
+=== Step 142 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=2, fleet_ships=8 | total_ships=8
+  Top fleets: id=182 size=5 pos=(52.1,1.0) angle=-1.78, id=207 size=3 pos=(47.7,3.9) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[17, -1.01, 70]; [9, -0.99, 12]; [31, -1.60, 29]; [19, -1.35, 10]; [15, -1.89, 11]; [22, 0.06, 17]; [20, -1.37, 10]; [24, -3.05, 14]; [27, 0.09, 13] | planets=28, planet_ships=519 | fleets=60, fleet_ships=1207 | total_ships=1726
+  Top fleets: id=424 size=70 pos=(11.2,38.5) angle=-1.77, id=430 size=70 pos=(53.5,81.7) angle=-1.01, id=415 size=60 pos=(12.6,47.5) angle=-1.75
+=== Step 143 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=1, fleet_ships=3 | total_ships=3
+  Top fleets: id=207 size=3 pos=(48.4,2.8) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[11, 0.29, 50]; [18, 0.13, 78]; [9, -1.08, 11]; [31, -1.55, 21]; [17, 0.05, 11]; [20, -1.33, 11]; [27, 0.09, 12] | planets=28, planet_ships=465 | fleets=62, fleet_ships=1313 | total_ships=1778
+  Top fleets: id=440 size=78 pos=(56.5,14.3) angle=0.13, id=424 size=70 pos=(10.5,35.2) angle=-1.77, id=430 size=70 pos=(55.3,78.8) angle=-1.01
+=== Step 144 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=1, fleet_ships=3 | total_ships=3
+  Top fleets: id=207 size=3 pos=(49.1,1.7) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[5, -1.43, 11]; [9, -1.18, 16]; [29, -1.02, 10]; [31, -1.50, 18]; [13, 1.01, 11]; [12, 1.33, 10]; [8, -0.38, 10]; [16, -1.26, 10]; [14, -0.79, 10]; [0, 0.09, 27]; [28, -1.46, 15]; [24, -3.05, 17] | planets=28, planet_ships=502 | fleets=69, fleet_ships=1328 | total_ships=1830
+  Top fleets: id=440 size=78 pos=(60.0,14.7) angle=0.13, id=424 size=70 pos=(9.9,31.8) angle=-1.77, id=430 size=70 pos=(57.1,75.9) angle=-1.01
+=== Step 145 ===
+test.py | status=ACTIVE | reward=0 | action=none | planets=0, planet_ships=0 | fleets=1, fleet_ships=3 | total_ships=3
+  Top fleets: id=207 size=3 pos=(49.8,0.6) angle=-1.01
+agent1.py | status=ACTIVE | reward=0 | action=[11, 0.94, 60]; [16, -1.36, 78]; [25, -0.72, 21]; [17, 0.13, 14]; [15, -1.77, 10]; [0, 0.09, 11] | planets=29, planet_ships=483 | fleets=64, fleet_ships=1323 | total_ships=1806
+  Top fleets: id=440 size=78 pos=(63.5,15.2) angle=0.13, id=459 size=78 pos=(87.6,42.1) angle=-1.36, id=424 size=70 pos=(9.2,28.5) angle=-1.77
+=== Step 146 ===
+test.py | status=DONE | reward=-1 | action=none | planets=0, planet_ships=0 | fleets=0, fleet_ships=0 | total_ships=0
+agent1.py | status=DONE | reward=1 | action=[9, -0.29, 59]; [18, 0.37, 12]; [21, 0.26, 15]; [10, 0.38, 16]; [11, 2.76, 22]; [19, -1.22, 11]; [30, -0.48, 26]; [3, -3.05, 10] | planets=29, planet_ships=552 | fleets=64, fleet_ships=1309 | total_ships=1861
+  Top fleets: id=440 size=78 pos=(66.9,15.7) angle=0.13, id=424 size=70 pos=(8.6,25.1) angle=-1.77, id=430 size=70 pos=(60.7,70.1) angle=-1.01

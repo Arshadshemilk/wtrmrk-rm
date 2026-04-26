@@ -43,6 +43,10 @@ LATE_REMAINING_TURNS = 100          # was 70
 VERY_LATE_REMAINING_TURNS = 60     # was 35
 TOTAL_WAR_REMAINING_TURNS = 0      # DISABLED – total war bleeds points
 
+# Pentagon-level safety: global caps to avoid cross-planet overcommit
+GLOBAL_MIN_RESERVE_FRACTION = 0.32  # keep at least this fraction of my ships in reserve
+GLOBAL_ATTACK_CAP_ENABLED = True
+
 SAFE_NEUTRAL_MARGIN = 2
 CONTESTED_NEUTRAL_MARGIN = 2
 INTERCEPT_TOLERANCE = 1
@@ -1242,7 +1246,12 @@ def build_policy_state(world, deadline=None):
             exact_keep = min(exact_keep, max(1, exact_keep // 2))
             proactive_keep = min(proactive_keep, max(1, proactive_keep // 2))
 
-        reserve[planet.id] = min(int(planet.ships), max(exact_keep, proactive_keep))
+        reserve_amount = max(1, exact_keep, proactive_keep)
+        if len(world.my_planets) == 1:
+            reserve_amount = max(reserve_amount, 3, int(planet.ships * 0.25))
+
+        # Always preserve a defensive buffer on weak or isolated planets.
+        reserve[planet.id] = min(int(planet.ships), reserve_amount)
         attack_budget[planet.id] = max(0, int(planet.ships) - reserve[planet.id])
 
     return {
@@ -1339,7 +1348,7 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
     # === DOMINATOR CEASEFIRE PROTOCOL ===
     # If the game is almost over, NEVER attack a planet that costs more ships
     # than it can produce in the remaining turns.  Hoard ships instead.
-    if world.remaining_steps < 80:
+    if world.remaining_steps < 50:
         cost_to_take = max(0, int(target.ships))
         expected_production = target.production * turns_profit
         if cost_to_take > expected_production + 2:   # small tolerance, almost never worth it
@@ -2276,8 +2285,11 @@ def plan_moves(world, deadline=None):
         budget = policy["attack_budget"].get(source_id, 0)
         return max(0, budget - spent_total[source_id])
 
-    def append_move(src_id, angle, ships):
-        send = min(int(ships), source_inventory_left(src_id))
+    def append_move(src_id, angle, ships, honor_budget=True):
+        send = int(ships)
+        if honor_budget:
+            send = min(send, source_attack_left(src_id))
+        send = min(send, source_inventory_left(src_id))
         if send < 1:
             return 0
         moves.append([src_id, float(angle), int(send)])
@@ -2906,7 +2918,7 @@ def plan_moves(world, deadline=None):
 
             if best_capture is not None:
                 _, target_id, angle, turns, need = best_capture
-                actual = append_move(planet.id, angle, need)
+                actual = append_move(planet.id, angle, need, honor_budget=False)
                 if actual >= 1:
                     planned_commitments[target_id].append((turns, world.player, int(actual)))
                 continue
