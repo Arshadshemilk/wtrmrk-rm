@@ -1251,8 +1251,32 @@ def build_policy_state(world, deadline=None):
             reserve_amount = max(reserve_amount, 3, int(planet.ships * 0.25))
 
         # Always preserve a defensive buffer on weak or isolated planets.
-        reserve[planet.id] = min(int(planet.ships), reserve_amount)
+        per_planet_reserve = min(int(planet.ships), reserve_amount)
+        reserve[planet.id] = per_planet_reserve
         attack_budget[planet.id] = max(0, int(planet.ships) - reserve[planet.id])
+
+    # Pentagon-level adjustment: ensure global reserve fraction across all planets
+    if GLOBAL_ATTACK_CAP_ENABLED and world.my_planets:
+        total_my_ships = sum(int(p.ships) for p in world.my_planets)
+        desired_global_reserve = int(math.ceil(total_my_ships * GLOBAL_MIN_RESERVE_FRACTION))
+        current_reserve = sum(reserve.values())
+        if current_reserve < desired_global_reserve:
+            shortfall = desired_global_reserve - current_reserve
+            # Add shortfall to the most expendable planets (largest surplus)
+            surpluses = sorted(
+                [(pid, int(world.planet_by_id[pid].ships) - reserve[pid]) for pid in reserve],
+                key=lambda x: x[1],
+                reverse=True,
+            )
+            for pid, surplus in surpluses:
+                if shortfall <= 0:
+                    break
+                take = min(surplus, shortfall)
+                if take <= 0:
+                    continue
+                reserve[pid] += take
+                attack_budget[pid] = max(0, int(world.planet_by_id[pid].ships) - reserve[pid])
+                shortfall -= take
 
     return {
         "indirect_wealth_map": indirect_wealth_map,
@@ -2296,6 +2320,42 @@ def plan_moves(world, deadline=None):
         spent_total[src_id] += send
         return send
 
+    # Final safety check before returning moves: ensure global attack cap not violated
+    def enforce_global_attack_cap(final_moves):
+        if not GLOBAL_ATTACK_CAP_ENABLED:
+            return final_moves
+        # compute totals
+        total_my = sum(int(p.ships) for p in world.my_planets)
+        global_allow = max(0, int(math.floor(total_my * (1 - GLOBAL_MIN_RESERVE_FRACTION))))
+        used = defaultdict(int)
+        for src_id, angle, ships in final_moves:
+            used[src_id] += int(ships)
+        total_sent = sum(used.values())
+        if total_sent <= global_allow:
+            return final_moves
+
+        # Trim sends starting from smallest sources to preserve large anchors
+        deficit = total_sent - global_allow
+        # sort by (sent, source_ships) ascending to reduce from small senders first
+        order = sorted(final_moves, key=lambda mv: (mv[2], world.planet_by_id[mv[0]].ships))
+        adjusted = []
+        reduced = defaultdict(int)
+        for src_id, angle, ships in order:
+            if deficit <= 0:
+                adjusted.append([src_id, angle, ships])
+                continue
+            take = min(int(ships), deficit)
+            new_send = int(ships) - take
+            deficit -= take
+            if new_send >= 1:
+                adjusted.append([src_id, angle, new_send])
+            else:
+                reduced[src_id] += int(ships)
+
+        # reconsolidate to keep ordering similar to original
+        # keep only adjusted sends and drop any that are zero
+        return [mv for mv in adjusted if mv[2] >= 1]
+
     def finalize_moves():
         final_moves = []
         used_final = defaultdict(int)
@@ -2306,7 +2366,8 @@ def plan_moves(world, deadline=None):
             if send >= 1:
                 final_moves.append([src_id, float(angle), int(send)])
                 used_final[src_id] += send
-        return final_moves
+        # enforce global cap safety
+        return enforce_global_attack_cap(final_moves)
 
     def compute_live_doomed():
         doomed = set()
