@@ -44,7 +44,7 @@ VERY_LATE_REMAINING_TURNS = 60     # was 35
 TOTAL_WAR_REMAINING_TURNS = 0      # DISABLED – total war bleeds points
 
 # Pentagon-level safety: global caps to avoid cross-planet overcommit
-GLOBAL_MIN_RESERVE_FRACTION = 0.12  # was 0.32 – free up ships for expansion
+GLOBAL_MIN_RESERVE_FRACTION = 0.12  # was 0.32
 GLOBAL_ATTACK_CAP_ENABLED = True
 
 SAFE_NEUTRAL_MARGIN = 2
@@ -53,11 +53,11 @@ INTERCEPT_TOLERANCE = 1
 
 SAFE_OPENING_PROD_THRESHOLD = 4
 SAFE_OPENING_TURN_LIMIT = 10
-ROTATING_OPENING_MAX_TURNS = 16
+ROTATING_OPENING_MAX_TURNS = 24         # increased opening window
 ROTATING_OPENING_LOW_PROD = 1
 FOUR_PLAYER_ROTATING_REACTION_GAP = 2
 FOUR_PLAYER_ROTATING_SEND_RATIO = 0.82
-FOUR_PLAYER_ROTATING_TURN_LIMIT = 14
+FOUR_PLAYER_ROTATING_TURN_LIMIT = 18    # reach further in opening
 
 COMET_MAX_CHASE_TURNS = 10
 
@@ -131,12 +131,12 @@ REINFORCE_VALUE_MULT = 1.6
 REINFORCE_CRASH_EXPLOIT_VALUE_MULT = 1.18
 FINISHING_HOSTILE_VALUE_MULT = 1.4
 
-REINFORCE_ENABLED = True                # restored reinforcement for frontier hardening
-REINFORCE_MIN_PRODUCTION = 2
-REINFORCE_MAX_TRAVEL_TURNS = 25
+REINFORCE_ENABLED = True
+REINFORCE_MIN_PRODUCTION = 1            # defend even small production
+REINFORCE_MAX_TRAVEL_TURNS = 28         # further reinforcement range
 REINFORCE_SAFETY_MARGIN = 1
 REINFORCE_MAX_SOURCE_FRACTION = 0.85
-REINFORCE_MIN_FUTURE_TURNS = 30
+REINFORCE_MIN_FUTURE_TURNS = 22
 REINFORCE_HOLD_LOOKAHEAD = 15
 REINFORCE_COST_TURN_WEIGHT = 0.30
 
@@ -726,6 +726,15 @@ class StrategyModel:
 
     def _profile_enemies(self):
         profiles = {}
+        # Pre-calculate aggression from world.arrivals_by_planet (O(N_planets) instead of O(N_fleets * N_planets))
+        aggression_to_me = defaultdict(int)
+        for target_id, arrivals in self.world.arrivals_by_planet.items():
+            target = self.world.planet_by_id[target_id]
+            if target.owner == self.world.player:
+                for _, owner, ships in arrivals:
+                    if owner != -1 and owner != self.world.player:
+                        aggression_to_me[owner] += ships
+
         for owner in range(4):
             if owner == self.world.player:
                 continue
@@ -733,32 +742,30 @@ class StrategyModel:
             fleets = [f for f in self.world.fleets if f.owner == owner]
             p.launch_count = len(fleets)
             p.ships_launched = sum(int(f.ships) for f in fleets)
-            
-            # Detect aggression to me
-            to_me = 0
-            for f in fleets:
-                target, _ = fleet_target_planet(f, self.world.planets)
-                if target and target.owner == self.world.player:
-                    to_me += int(f.ships)
-            p.aggression_to_me = to_me / max(1, self.world.my_total)
+            p.aggression_to_me = aggression_to_me[owner] / max(1, self.world.my_total)
             
             # Detect distraction (fighting others)
             committed_to_others = self.world.enemy_war_ships.get(owner, 0)
-            p.is_distracted = committed_to_others > (p.ships_launched * 0.4)
+            p.is_distracted = committed_to_others > (p.ships_launched * 0.35)
             
             profiles[owner] = p
         return profiles
 
     def _calculate_aggression(self):
         base = 1.0
-        if self.world.is_opening: base *= 1.2
-        if self.world.my_total > self.world.max_enemy_strength * 1.5: base *= 1.3
+        if self.world.is_opening: base *= 1.25
+        # Desperation boost: if behind, become much more aggressive to catch up
+        if self.urgency > 1.4: base *= (1.0 + (self.urgency - 1.0) * 0.8)
+        if self.world.my_total > self.world.max_enemy_strength * 1.5: base *= 1.2
         return base
 
     def _calculate_urgency(self):
         my_rank = 1
+        my_strength = self.world.my_total + self.world.my_prod * 10
         for owner, strength in self.world.owner_strength.items():
-            if owner != self.world.player and strength > self.world.my_total:
+            if owner == self.world.player: continue
+            enemy_total = strength + self.world.owner_production.get(owner, 0) * 10
+            if enemy_total > my_strength:
                 my_rank += 1
         return 1.0 + (my_rank - 1) * 0.5
 
@@ -767,14 +774,16 @@ class StrategyModel:
         
         # Threat detection
         max_aggression = max((p.aggression_to_me for p in self.profiles.values()), default=0)
-        if max_aggression > 0.15: return "SURVIVAL"
+        if max_aggression > 0.20: return "SURVIVAL"
         
+        # Blitz mode: stay in Blitz as long as we are behind or it's early
+        if self.urgency > 1.2 or self.world.is_opening:
+            return "BLITZ"
+
         # Opportunity detection
-        if any(p.is_distracted for p in self.profiles.values()) and self.world.my_total > 50:
+        if any(p.is_distracted for p in self.profiles.values()) and self.world.my_total > 40:
             return "VULTURE"
             
-        if self.world.is_opening: return "BLITZ"
-        
         return "ECONOMY"
 
 
@@ -1405,12 +1414,14 @@ def build_modes(world):
     # Apply Meta-Strategy Overrides
     global_reserve_override = GLOBAL_MIN_RESERVE_FRACTION
     if strategy.mode == "BLITZ":
-        global_reserve_override = 0.05
+        global_reserve_override = 0.04  # ultra-low reserve for recovery
+        attack_margin_mult -= 0.05      # take more risks to catch up
     elif strategy.mode == "SURVIVAL":
-        global_reserve_override = 0.25
-        attack_margin_mult += 0.15
+        global_reserve_override = 0.28
+        attack_margin_mult += 0.20
     elif strategy.mode == "VULTURE":
         global_reserve_override = 0.08
+        attack_margin_mult -= 0.02
 
     return {
         "domination": domination,
@@ -1544,11 +1555,14 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
     if strategy:
         value *= strategy.aggression
         if strategy.mode == "VULTURE" and target.owner in world.enemy_war_ships:
-            value *= 1.5  # Heavy vulture bias
-        if strategy.mode == "BLITZ" and target.owner == -1:
-            value *= 1.4  # Heavy expansion bias
+            value *= 1.6  # Heavier vulture bias
+        if strategy.mode == "BLITZ":
+            if target.owner == -1:
+                value *= 1.5  # Heavy expansion bias
+            elif target.ships < 15:
+                value *= 1.3  # Blitz-reclaim bias
         if strategy.mode == "SURVIVAL" and target.owner == -1 and is_safe_neutral(target, policy):
-            value *= 1.6  # Desperate expansion for survival
+            value *= 1.8  # Desperate expansion for survival
 
     if modes["is_finishing"] and target.owner not in (-1, world.player):
         value *= FINISHING_HOSTILE_VALUE_MULT
