@@ -1480,7 +1480,7 @@ def opening_filter(target, arrival_turns, needed, src_available, world, policy):
 
 # ================== CORE DOMINATOR LOGIC ==================
 
-def target_value(target, arrival_turns, mission, world, modes, policy):
+def target_value(target, arrival_turns, mission, world, modes, policy, planned_commitments=None):
     turns_profit = max(1, world.remaining_steps - arrival_turns)
     if target.id in world.comet_ids:
         life = world.comet_life(target.id)
@@ -2024,7 +2024,7 @@ def build_snipe_mission(src, target, src_available, world, planned_commitments, 
             if sync_turn >= life or sync_turn > COMET_MAX_CHASE_TURNS:
                 continue
 
-        value = target_value(target, sync_turn, "snipe", world, modes, policy)
+        value = target_value(target, sync_turn, "snipe", world, modes, policy, planned_commitments=planned_commitments)
         if value <= 0:
             continue
             
@@ -2407,7 +2407,7 @@ def build_crash_exploit_missions(world, policy, planned_commitments, modes):
             angle, turns, _, need, send_pref = plan
             if not candidate_time_valid(target, turns, world, LATE_CAPTURE_BUFFER):
                 continue
-            value = target_value(target, turns, "crash_exploit", world, modes, policy)
+            value = target_value(target, turns, "crash_exploit", world, modes, policy, planned_commitments=planned_commitments)
             if value <= 0:
                 continue
 
@@ -2478,7 +2478,7 @@ def build_gang_up_missions(world, policy, planned_commitments, modes):
             if not candidate_time_valid(target, turns, world, LATE_CAPTURE_BUFFER):
                 continue
 
-            value = target_value(target, turns, "capture", world, modes, policy)
+            value = target_value(target, turns, "capture", world, modes, policy, planned_commitments=planned_commitments)
             value *= GANG_UP_VALUE_MULT
             if value <= 0:
                 continue
@@ -2694,7 +2694,7 @@ def plan_moves(world, deadline=None):
                     _, partial_aim = partial_seed
                     p_angle, p_turns, _, _ = partial_aim
                     if time_filters_pass(target, p_turns, global_needed, src_available):
-                        partial_value = target_value(target, p_turns, "swarm", world, modes, policy)
+                        partial_value = target_value(target, p_turns, "swarm", world, modes, policy, planned_commitments=planned_commitments)
                         if partial_value > 0:
                             partial_score = apply_score_modifiers(
                                 partial_value / (partial_send_cap + p_turns * ATTACK_COST_TURN_WEIGHT + 1.0),
@@ -2739,7 +2739,7 @@ def plan_moves(world, deadline=None):
                 if send_cap < 1:
                     continue
 
-                value = target_value(target, turns, "capture", world, modes, policy)
+                value = target_value(target, turns, "capture", world, modes, policy, planned_commitments=planned_commitments)
                 if value <= 0:
                     continue
 
@@ -2810,7 +2810,7 @@ def plan_moves(world, deadline=None):
                 if total_cap < need:
                     continue
 
-                value = target_value(target, joint_turn, "swarm", world, modes, policy)
+                value = target_value(target, joint_turn, "swarm", world, modes, policy, planned_commitments=planned_commitments)
                 if value <= 0:
                     continue
 
@@ -2867,7 +2867,7 @@ def plan_moves(world, deadline=None):
                         ):
                             continue
 
-                        value = target_value(target, joint_turn, "swarm", world, modes, policy)
+                        value = target_value(target, joint_turn, "swarm", world, modes, policy, planned_commitments=planned_commitments)
                         if value <= 0:
                             continue
 
@@ -3097,7 +3097,7 @@ def plan_moves(world, deadline=None):
                 if final_send < need:
                     continue
 
-                value = target_value(target, turns, "capture", world, modes, policy)
+                value = target_value(target, turns, "capture", world, modes, policy, planned_commitments=planned_commitments)
                 if value <= 0:
                     continue
 
@@ -3199,7 +3199,7 @@ def plan_moves(world, deadline=None):
                 angle, turns, _, plan_need, send = plan
                 if send < plan_need:
                     continue
-                score = target_value(target, turns, "capture", world, modes, policy) / (send + turns + 1.0)
+                score = target_value(target, turns, "capture", world, modes, policy, planned_commitments=planned_commitments) / (send + turns + 1.0)
                 if target.owner not in (-1, world.player):
                     score *= 1.05
                 if best_capture is None or score > best_capture[0]:
