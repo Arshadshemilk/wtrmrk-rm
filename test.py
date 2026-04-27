@@ -719,9 +719,9 @@ class EnemyProfile:
 class StrategyModel:
     def __init__(self, world):
         self.world = world
+        self.urgency = self._calculate_urgency()
         self.profiles = self._profile_enemies()
         self.aggression = self._calculate_aggression()
-        self.urgency = self._calculate_urgency()
         self.mode = self._determine_mode()
 
     def _profile_enemies(self):
