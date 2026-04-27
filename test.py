@@ -44,8 +44,8 @@ VERY_LATE_REMAINING_TURNS = 60     # was 35
 TOTAL_WAR_REMAINING_TURNS = 0      # DISABLED – total war bleeds points
 
 # Pentagon-level safety: global caps to avoid cross-planet overcommit
-GLOBAL_MIN_RESERVE_FRACTION = 0.12  # was 0.32
-GLOBAL_ATTACK_CAP_ENABLED = True
+GLOBAL_MIN_RESERVE_FRACTION = 0.05  # was 0.12 - let agents play more loosely
+GLOBAL_ATTACK_CAP_ENABLED = False  # was True - causing massive stagnation in 4P
 
 SAFE_NEUTRAL_MARGIN = 2
 CONTESTED_NEUTRAL_MARGIN = 2
@@ -69,14 +69,14 @@ INDIRECT_NEUTRAL_WEIGHT = 0.9
 INDIRECT_ENEMY_WEIGHT = 1.25
 
 # --- VALUE MULTIPLIERS (AGGRESSIVE HOARDING) ---
-STATIC_NEUTRAL_VALUE_MULT = 1.9         # was 2.5 – backline is critical but opening is more
-STATIC_HOSTILE_VALUE_MULT = 2.2         # was 1.8
+STATIC_NEUTRAL_VALUE_MULT = 1.8         # priority on backline
+STATIC_HOSTILE_VALUE_MULT = 1.5         # was 2.2 - too expensive in 4P
 ROTATING_OPENING_VALUE_MULT = 0.95
-HOSTILE_TARGET_VALUE_MULT = 2.1
-OPENING_HOSTILE_TARGET_VALUE_MULT = 1.75
-SAFE_NEUTRAL_VALUE_MULT = 1.2
-CONTESTED_NEUTRAL_VALUE_MULT = 0.7
-EARLY_NEUTRAL_VALUE_MULT = 1.2
+HOSTILE_TARGET_VALUE_MULT = 1.6         # was 2.1 - too eager to fight
+OPENING_HOSTILE_TARGET_VALUE_MULT = 1.4
+SAFE_NEUTRAL_VALUE_MULT = 1.3
+CONTESTED_NEUTRAL_VALUE_MULT = 0.75
+EARLY_NEUTRAL_VALUE_MULT = 1.3
 COMET_VALUE_MULT = 0.65
 SNIPE_VALUE_MULT = 1.12
 SWARM_VALUE_MULT = 1.05
@@ -85,7 +85,7 @@ CRASH_EXPLOIT_VALUE_MULT = 1.18
 BEHIND_ROTATING_NEUTRAL_VALUE_MULT = 0.92
 EXPOSED_PLANET_VALUE_MULT = 1.85
 
-WEAKEST_ENEMY_VALUE_MULT_4P = 3.5       # was 3.0 – eliminate weakest ruthlessly
+WEAKEST_ENEMY_VALUE_MULT_4P = 1.4       # was 3.5 - stop throwing ships away!
 WEAKEST_ENEMY_VALUE_MULT_2P = 1.3
 GANG_UP_VALUE_MULT = 1.55
 GANG_UP_POST_BATTLE_DELAY = 1
@@ -108,7 +108,7 @@ FINISHING_HOSTILE_SEND_BONUS = 3
 
 STATIC_TARGET_SCORE_MULT = 1.18
 EARLY_STATIC_NEUTRAL_SCORE_MULT = 1.25
-FOUR_PLAYER_ROTATING_NEUTRAL_SCORE_MULT = 0.88  # was 0.1 – UNLOCKED OPENING
+FOUR_PLAYER_ROTATING_NEUTRAL_SCORE_MULT = 0.95  # was 0.88 - buff neutral taking in 4P
 DENSE_STATIC_NEUTRAL_COUNT = 4
 DENSE_ROTATING_NEUTRAL_SCORE_MULT = 0.86
 SNIPE_SCORE_MULT = 1.12
@@ -772,9 +772,9 @@ class StrategyModel:
     def _determine_mode(self):
         if self.world.is_very_late: return "FINISHING"
         
-        # Threat detection
+        # Threat detection - drastically increased threshold to avoid false "Survival" locking
         max_aggression = max((p.aggression_to_me for p in self.profiles.values()), default=0)
-        if max_aggression > 0.20: return "SURVIVAL"
+        if max_aggression > 0.40: return "SURVIVAL"
         
         # Blitz mode: stay in Blitz as long as we are behind or it's early
         if self.urgency > 1.2 or self.world.is_opening:
@@ -1960,7 +1960,7 @@ def settle_reinforce_plan(
 
 
 def build_snipe_mission(src, target, src_available, world, planned_commitments, modes, policy):
-    if target.owner != -1:
+    if target.owner == world.player:
         return None
 
     enemy_etas = sorted({
@@ -1970,6 +1970,12 @@ def build_snipe_mission(src, target, src_available, world, planned_commitments, 
     })
     if not enemy_etas:
         return None
+    
+    # War intelligence: if this is an enemy planet being attacked by ANOTHER enemy, boost priority
+    is_inter_enemy_war = target.owner not in (-1, world.player) and any(
+        owner != target.owner for eta, owner, ships in world.arrivals_by_planet.get(target.id, [])
+        if owner not in (-1, world.player)
+    )
 
     best = None
     for enemy_eta in enemy_etas[:3]:
@@ -2016,6 +2022,9 @@ def build_snipe_mission(src, target, src_available, world, planned_commitments, 
         value = target_value(target, sync_turn, "snipe", world, modes, policy)
         if value <= 0:
             continue
+            
+        if is_inter_enemy_war:
+            value *= 1.4  # Massive boost for interfering in inter-enemy wars
 
         score = apply_score_modifiers(
             value / (send_pref + sync_turn * SNIPE_COST_TURN_WEIGHT + 1.0),
@@ -3129,6 +3138,37 @@ def plan_moves(world, deadline=None):
                 for ally in world.my_planets
                 if ally.id != planet.id and ally.id not in live_doomed
             ]
+            # KAMIKAZE EVACUATION: Try to conquer a vulnerable planet instead of just retreating
+            kamikaze_target = None
+            kamikaze_angle = None
+            valid_targets = []
+            
+            # Check all enemy and neutral planets for a desperation capture
+            for ep in world.enemy_planets + world.neutral_planets:
+                if ep.id in live_doomed: continue
+                
+                seeded = world.best_probe_aim(planet.id, ep.id, available_now, hints=(int(ep.ships)+1,))
+                if not seeded: continue
+                probe, rough = seeded
+                turns = rough[1]
+                
+                if turns > 30: continue
+                
+                need = world.min_ships_to_own_at(ep.id, turns, world.player, planned_commitments=planned_commitments)
+                if 0 < need <= available_now:
+                    valid_targets.append((ep, need, turns, rough[0]))
+            
+            if valid_targets:
+                # Prioritize high production, then fast arrival
+                best_k = max(valid_targets, key=lambda x: (x[0].production, -x[2]))
+                kamikaze_target = best_k[0]
+                kamikaze_angle = best_k[3]
+                
+            if kamikaze_target is not None:
+                append_move(planet.id, kamikaze_angle, available_now)
+                continue
+
+            # Fallback: Retreat to nearest safe ally
             if not safe_allies:
                 continue
 
