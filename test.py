@@ -1497,18 +1497,23 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
         if cost_to_take > expected_production + 2:   # small tolerance, almost never worth it
             return -1.0
 
+    # Use PROJECTED state for evaluation (who will own it when we arrive?)
+    projected = world.projected_state(target.id, arrival_turns, planned_commitments=planned_commitments)
+    p_owner = projected["owner"]
+    p_ships = projected["ships"]
+
     value = target.production * turns_profit
     value += policy["indirect_wealth_map"][target.id] * turns_profit * INDIRECT_VALUE_SCALE
 
     if world.is_static(target.id):
-        value *= STATIC_NEUTRAL_VALUE_MULT if target.owner == -1 else STATIC_HOSTILE_VALUE_MULT
+        value *= STATIC_NEUTRAL_VALUE_MULT if p_owner == -1 else STATIC_HOSTILE_VALUE_MULT
     else:
         value *= ROTATING_OPENING_VALUE_MULT if world.is_opening else 1.0
 
-    if target.owner not in (-1, world.player):
+    if p_owner not in (-1, world.player):
         value *= OPENING_HOSTILE_TARGET_VALUE_MULT if world.is_opening else HOSTILE_TARGET_VALUE_MULT
 
-    if target.owner == -1:
+    if p_owner == -1:
         if is_safe_neutral(target, policy):
             value *= SAFE_NEUTRAL_VALUE_MULT
         elif is_contested_neutral(target, policy):
@@ -1538,15 +1543,15 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
             value *= 1.35
 
     if world.is_late:
-        value += max(0, target.ships) * LATE_IMMEDIATE_SHIP_VALUE
-        if target.owner not in (-1, world.player):
-            enemy_strength = world.owner_strength.get(target.owner, 0)
+        value += max(0, p_ships) * LATE_IMMEDIATE_SHIP_VALUE
+        if p_owner not in (-1, world.player):
+            enemy_strength = world.owner_strength.get(p_owner, 0)
             if enemy_strength <= WEAK_ENEMY_THRESHOLD:
                 value += ELIMINATION_BONUS
 
     # Weakest enemy targeting (hyper-aggressive in 4P)
-    if target.owner in world.enemy_planets and world._weakest_enemy is not None:
-        if target.owner == world._weakest_enemy:
+    if p_owner in world.enemy_planets and world._weakest_enemy is not None:
+        if p_owner == world._weakest_enemy:
             mult = WEAKEST_ENEMY_VALUE_MULT_4P if world.is_four_player else WEAKEST_ENEMY_VALUE_MULT_2P
             value *= mult
 
@@ -2283,6 +2288,77 @@ def build_reinforce_missions(world, policy, planned_commitments, modes, inventor
     return missions
 
 
+def build_comet_intercept_missions(world, policy, planned_commitments, modes):
+    """Pre-position to intercept comets spawning in your quadrant."""
+    if not world.comet_ids or not world.my_planets:
+        return []
+
+    missions = []
+    for comet_id in world.comet_ids:
+        comet = world.planet_by_id.get(comet_id)
+        if comet is None or comet.owner == world.player:
+            continue
+
+        # Distance logic: focus on comets we have a reasonable chance to reach
+        my_nearest_dist = nearest_distance_to_set(comet.x, comet.y, world.my_planets)
+        enemy_nearest_dist = nearest_distance_to_set(comet.x, comet.y, world.enemy_planets) if world.enemy_planets else 10**9
+        
+        # If enemies are significantly closer, don't waste ships chasing it
+        if my_nearest_dist > enemy_nearest_dist + 8:
+            continue
+
+        for src in world.my_planets:
+            src_available = policy["attack_budget"].get(src.id, 0)
+            if src_available < PARTIAL_SOURCE_MIN_SHIPS:
+                continue
+
+            seeded = world.best_probe_aim(
+                src.id, comet_id, src_available,
+                hints=(int(comet.ships) + 2, int(comet.ships) + 12),
+            )
+            if seeded is None:
+                continue
+            _, rough_aim = seeded
+            rough_turns = rough_aim[1]
+
+            life = world.comet_life(comet_id)
+            if rough_turns >= life - 1:
+                continue
+
+            plan = settle_plan(
+                src, comet, src_available,
+                max(int(comet.ships) + 2, PARTIAL_SOURCE_MIN_SHIPS),
+                world, planned_commitments, modes, policy,
+                mission="capture",
+            )
+            if plan is None:
+                continue
+
+            angle, turns, _, need, send_pref = plan
+            if turns >= life - 1:
+                continue
+
+            comet_life_left = max(1, life - turns)
+            # High value for comets because they jumpstart production
+            value = comet.production * comet_life_left * 2.0
+            
+            score = apply_score_modifiers(
+                value / (send_pref + turns * ATTACK_COST_TURN_WEIGHT + 1.0),
+                comet, "capture", world,
+            )
+            option = ShotOption(
+                score=score, src_id=src.id, target_id=comet_id,
+                angle=angle, turns=turns, needed=need, send_cap=send_pref,
+                mission="capture",
+            )
+            missions.append(Mission(
+                kind="single", score=score, target_id=comet_id,
+                turns=turns, options=[option],
+            ))
+
+    return missions
+
+
 def build_crash_exploit_missions(world, policy, planned_commitments, modes):
     if not CRASH_EXPLOIT_ENABLED or not world.is_four_player:
         return []
@@ -2557,6 +2633,9 @@ def plan_moves(world, deadline=None):
     if allow_heavy_phase() and world.is_four_player:
         missions.extend(build_gang_up_missions(world, policy, planned_commitments, modes))
 
+    if allow_optional_phase():
+        missions.extend(build_comet_intercept_missions(world, policy, planned_commitments, modes))
+
     for src in world.my_planets:
         if expired():
             return finalize_moves()
@@ -2753,7 +2832,7 @@ def plan_moves(world, deadline=None):
         if (
             THREE_SOURCE_SWARM_ENABLED
             and allow_heavy_phase()
-            and target.owner not in (-1, world.player)
+            and (target.owner not in (-1, world.player) or int(target.ships) > 60)
             and int(target.ships) >= THREE_SOURCE_MIN_TARGET_SHIPS
             and len(top_options) >= 3
         ):
