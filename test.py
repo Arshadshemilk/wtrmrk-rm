@@ -706,6 +706,78 @@ def _compute_enemy_war_commitment(arrivals_by_planet, planet_by_id, player):
     return dict(war_ships)
 
 
+class EnemyProfile:
+    def __init__(self, owner_id):
+        self.owner_id = owner_id
+        self.launch_count = 0
+        self.ships_launched = 0
+        self.expansion_speed = 0.0
+        self.aggression_to_me = 0.0
+        self.is_distracted = False
+
+
+class StrategyModel:
+    def __init__(self, world):
+        self.world = world
+        self.profiles = self._profile_enemies()
+        self.aggression = self._calculate_aggression()
+        self.urgency = self._calculate_urgency()
+        self.mode = self._determine_mode()
+
+    def _profile_enemies(self):
+        profiles = {}
+        for owner in range(4):
+            if owner == self.world.player:
+                continue
+            p = EnemyProfile(owner)
+            fleets = [f for f in self.world.fleets if f.owner == owner]
+            p.launch_count = len(fleets)
+            p.ships_launched = sum(int(f.ships) for f in fleets)
+            
+            # Detect aggression to me
+            to_me = 0
+            for f in fleets:
+                target, _ = fleet_target_planet(f, self.world.planets)
+                if target and target.owner == self.world.player:
+                    to_me += int(f.ships)
+            p.aggression_to_me = to_me / max(1, self.world.my_total)
+            
+            # Detect distraction (fighting others)
+            committed_to_others = self.world.enemy_war_ships.get(owner, 0)
+            p.is_distracted = committed_to_others > (p.ships_launched * 0.4)
+            
+            profiles[owner] = p
+        return profiles
+
+    def _calculate_aggression(self):
+        base = 1.0
+        if self.world.is_opening: base *= 1.2
+        if self.world.my_total > self.world.max_enemy_strength * 1.5: base *= 1.3
+        return base
+
+    def _calculate_urgency(self):
+        my_rank = 1
+        for owner, strength in self.world.owner_strength.items():
+            if owner != self.world.player and strength > self.world.my_total:
+                my_rank += 1
+        return 1.0 + (my_rank - 1) * 0.5
+
+    def _determine_mode(self):
+        if self.world.is_very_late: return "FINISHING"
+        
+        # Threat detection
+        max_aggression = max((p.aggression_to_me for p in self.profiles.values()), default=0)
+        if max_aggression > 0.15: return "SURVIVAL"
+        
+        # Opportunity detection
+        if any(p.is_distracted for p in self.profiles.values()) and self.world.my_total > 50:
+            return "VULTURE"
+            
+        if self.world.is_opening: return "BLITZ"
+        
+        return "ECONOMY"
+
+
 class WorldModel:
     def __init__(self, player, step, planets, fleets, initial_by_id, ang_vel, comets, comet_ids):
         self.player = player
@@ -1279,7 +1351,8 @@ def build_policy_state(world, deadline=None):
     # Pentagon-level adjustment: ensure global reserve fraction across all planets
     if GLOBAL_ATTACK_CAP_ENABLED and world.my_planets:
         total_my_ships = sum(int(p.ships) for p in world.my_planets)
-        desired_global_reserve = int(math.ceil(total_my_ships * GLOBAL_MIN_RESERVE_FRACTION))
+        reserve_fraction = modes.get("reserve_fraction", GLOBAL_MIN_RESERVE_FRACTION)
+        desired_global_reserve = int(math.ceil(total_my_ships * reserve_fraction))
         current_reserve = sum(reserve.values())
         if current_reserve < desired_global_reserve:
             shortfall = desired_global_reserve - current_reserve
@@ -1307,8 +1380,10 @@ def build_policy_state(world, deadline=None):
     }
 
 def build_modes(world):
+    strategy = StrategyModel(world)
     domination = (world.my_total - world.enemy_total) / max(1, world.my_total + world.enemy_total)
-    is_behind = domination < BEHIND_DOMINATION
+    
+    is_behind = domination < BEHIND_DOMINATION or strategy.urgency > 1.5
     is_ahead = domination > AHEAD_DOMINATION
     is_dominating = is_ahead or (
         world.max_enemy_strength > 0 and world.my_total > world.max_enemy_strength * 1.25
@@ -1327,6 +1402,16 @@ def build_modes(world):
     if is_finishing:
         attack_margin_mult += FINISHING_ATTACK_MARGIN_BONUS
 
+    # Apply Meta-Strategy Overrides
+    global_reserve_override = GLOBAL_MIN_RESERVE_FRACTION
+    if strategy.mode == "BLITZ":
+        global_reserve_override = 0.05
+    elif strategy.mode == "SURVIVAL":
+        global_reserve_override = 0.25
+        attack_margin_mult += 0.15
+    elif strategy.mode == "VULTURE":
+        global_reserve_override = 0.08
+
     return {
         "domination": domination,
         "is_behind": is_behind,
@@ -1334,6 +1419,8 @@ def build_modes(world):
         "is_dominating": is_dominating,
         "is_finishing": is_finishing,
         "attack_margin_mult": attack_margin_mult,
+        "strategy": strategy,
+        "reserve_fraction": global_reserve_override,
     }
 
 def is_safe_neutral(target, policy):
@@ -1447,10 +1534,21 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
                 value += ELIMINATION_BONUS
 
     # Weakest enemy targeting (hyper-aggressive in 4P)
-    if target.owner not in (-1, world.player) and world._weakest_enemy is not None:
+    if target.owner in world.enemy_planets and world._weakest_enemy is not None:
         if target.owner == world._weakest_enemy:
             mult = WEAKEST_ENEMY_VALUE_MULT_4P if world.is_four_player else WEAKEST_ENEMY_VALUE_MULT_2P
             value *= mult
+
+    # Strategy Model Scaling
+    strategy = modes.get("strategy")
+    if strategy:
+        value *= strategy.aggression
+        if strategy.mode == "VULTURE" and target.owner in world.enemy_war_ships:
+            value *= 1.5  # Heavy vulture bias
+        if strategy.mode == "BLITZ" and target.owner == -1:
+            value *= 1.4  # Heavy expansion bias
+        if strategy.mode == "SURVIVAL" and target.owner == -1 and is_safe_neutral(target, policy):
+            value *= 1.6  # Desperate expansion for survival
 
     if modes["is_finishing"] and target.owner not in (-1, world.player):
         value *= FINISHING_HOSTILE_VALUE_MULT
@@ -2322,7 +2420,8 @@ def plan_moves(world, deadline=None):
         return time_left() > OPTIONAL_PHASE_MIN_TIME
 
     modes = build_modes(world)
-    policy = build_policy_state(world, deadline=deadline)
+    # Inject modes into building the policy so it can use the dynamic reserve
+    policy = build_policy_state(world, deadline=deadline, modes=modes)
     planned_commitments = defaultdict(list)
     source_options_by_target = defaultdict(list)
     missions = []
