@@ -1498,9 +1498,7 @@ def target_value(target, arrival_turns, mission, world, modes, policy, planned_c
             return -1.0
 
     # Use PROJECTED state for evaluation (who will own it when we arrive?)
-    projected = world.projected_state(target.id, arrival_turns, planned_commitments=planned_commitments)
-    p_owner = projected["owner"]
-    p_ships = projected["ships"]
+    p_owner, p_ships = world.projected_state(target.id, arrival_turns, planned_commitments=planned_commitments)
 
     value = target.production * turns_profit
     value += policy["indirect_wealth_map"][target.id] * turns_profit * INDIRECT_VALUE_SCALE
