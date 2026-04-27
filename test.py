@@ -1292,7 +1292,7 @@ def detect_enemy_planet_battles(world):
                 })
     return battles
 
-def build_policy_state(world, deadline=None):
+def build_policy_state(world, deadline=None, modes=None):
     def expired():
         return deadline is not None and time.perf_counter() > deadline
 
@@ -1351,7 +1351,7 @@ def build_policy_state(world, deadline=None):
     # Pentagon-level adjustment: ensure global reserve fraction across all planets
     if GLOBAL_ATTACK_CAP_ENABLED and world.my_planets:
         total_my_ships = sum(int(p.ships) for p in world.my_planets)
-        reserve_fraction = modes.get("reserve_fraction", GLOBAL_MIN_RESERVE_FRACTION)
+        reserve_fraction = modes.get("reserve_fraction", GLOBAL_MIN_RESERVE_FRACTION) if modes else GLOBAL_MIN_RESERVE_FRACTION
         desired_global_reserve = int(math.ceil(total_my_ships * reserve_fraction))
         current_reserve = sum(reserve.values())
         if current_reserve < desired_global_reserve:
