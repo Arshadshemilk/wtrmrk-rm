@@ -44,7 +44,7 @@ VERY_LATE_REMAINING_TURNS = 60     # was 35
 TOTAL_WAR_REMAINING_TURNS = 0      # DISABLED – total war bleeds points
 
 # Pentagon-level safety: global caps to avoid cross-planet overcommit
-GLOBAL_MIN_RESERVE_FRACTION = 0.32  # keep at least this fraction of my ships in reserve
+GLOBAL_MIN_RESERVE_FRACTION = 0.12  # was 0.32 – free up ships for expansion
 GLOBAL_ATTACK_CAP_ENABLED = True
 
 SAFE_NEUTRAL_MARGIN = 2
@@ -53,11 +53,11 @@ INTERCEPT_TOLERANCE = 1
 
 SAFE_OPENING_PROD_THRESHOLD = 4
 SAFE_OPENING_TURN_LIMIT = 10
-ROTATING_OPENING_MAX_TURNS = 13
-ROTATING_OPENING_LOW_PROD = 2
-FOUR_PLAYER_ROTATING_REACTION_GAP = 3
-FOUR_PLAYER_ROTATING_SEND_RATIO = 0.62
-FOUR_PLAYER_ROTATING_TURN_LIMIT = 10
+ROTATING_OPENING_MAX_TURNS = 16
+ROTATING_OPENING_LOW_PROD = 1
+FOUR_PLAYER_ROTATING_REACTION_GAP = 2
+FOUR_PLAYER_ROTATING_SEND_RATIO = 0.82
+FOUR_PLAYER_ROTATING_TURN_LIMIT = 14
 
 COMET_MAX_CHASE_TURNS = 10
 
@@ -69,8 +69,8 @@ INDIRECT_NEUTRAL_WEIGHT = 0.9
 INDIRECT_ENEMY_WEIGHT = 1.25
 
 # --- VALUE MULTIPLIERS (AGGRESSIVE HOARDING) ---
-STATIC_NEUTRAL_VALUE_MULT = 2.5         # was 1.6 – backline is critical
-STATIC_HOSTILE_VALUE_MULT = 1.8
+STATIC_NEUTRAL_VALUE_MULT = 1.9         # was 2.5 – backline is critical but opening is more
+STATIC_HOSTILE_VALUE_MULT = 2.2         # was 1.8
 ROTATING_OPENING_VALUE_MULT = 0.95
 HOSTILE_TARGET_VALUE_MULT = 2.1
 OPENING_HOSTILE_TARGET_VALUE_MULT = 1.75
@@ -85,16 +85,16 @@ CRASH_EXPLOIT_VALUE_MULT = 1.18
 BEHIND_ROTATING_NEUTRAL_VALUE_MULT = 0.92
 EXPOSED_PLANET_VALUE_MULT = 1.85
 
-WEAKEST_ENEMY_VALUE_MULT_4P = 3.0       # was 1.95 – eliminate weakest ruthlessly
+WEAKEST_ENEMY_VALUE_MULT_4P = 3.5       # was 3.0 – eliminate weakest ruthlessly
 WEAKEST_ENEMY_VALUE_MULT_2P = 1.3
 GANG_UP_VALUE_MULT = 1.55
 GANG_UP_POST_BATTLE_DELAY = 1
 GANG_UP_ETA_WINDOW = 4
 
-NEUTRAL_MARGIN_BASE = 1
+NEUTRAL_MARGIN_BASE = 2
 NEUTRAL_MARGIN_PROD_WEIGHT = 1.5
 NEUTRAL_MARGIN_CAP = 6
-HOSTILE_MARGIN_BASE = 2
+HOSTILE_MARGIN_BASE = 3
 HOSTILE_MARGIN_PROD_WEIGHT = 1.5
 HOSTILE_MARGIN_CAP = 10
 STATIC_TARGET_MARGIN = 3
@@ -108,14 +108,14 @@ FINISHING_HOSTILE_SEND_BONUS = 3
 
 STATIC_TARGET_SCORE_MULT = 1.18
 EARLY_STATIC_NEUTRAL_SCORE_MULT = 1.25
-FOUR_PLAYER_ROTATING_NEUTRAL_SCORE_MULT = 0.1  # was 0.84 – avoid center early
+FOUR_PLAYER_ROTATING_NEUTRAL_SCORE_MULT = 0.88  # was 0.1 – UNLOCKED OPENING
 DENSE_STATIC_NEUTRAL_COUNT = 4
 DENSE_ROTATING_NEUTRAL_SCORE_MULT = 0.86
 SNIPE_SCORE_MULT = 1.12
 SWARM_SCORE_MULT = 1.06
 CRASH_EXPLOIT_SCORE_MULT = 1.05
 
-FOLLOWUP_MIN_SHIPS = 50                 # was 8 – only launch massive follow-ups
+FOLLOWUP_MIN_SHIPS = 12                 # was 50 – allowed efficient follow-ups
 LOW_VALUE_COMET_PRODUCTION = 1
 LATE_CAPTURE_BUFFER = 5
 VERY_LATE_CAPTURE_BUFFER = 3
@@ -131,7 +131,7 @@ REINFORCE_VALUE_MULT = 1.6
 REINFORCE_CRASH_EXPLOIT_VALUE_MULT = 1.18
 FINISHING_HOSTILE_VALUE_MULT = 1.4
 
-REINFORCE_ENABLED = False               # DISABLED – reinforces are a trap
+REINFORCE_ENABLED = True                # restored reinforcement for frontier hardening
 REINFORCE_MIN_PRODUCTION = 2
 REINFORCE_MAX_TRAVEL_TURNS = 25
 REINFORCE_SAFETY_MARGIN = 1
@@ -192,7 +192,7 @@ BEHIND_ATTACK_MARGIN_PENALTY = 0.05
 FINISHING_ATTACK_MARGIN_BONUS = 0.12
 
 # --- EVACUATION DOMINATOR ---
-DOOMED_EVAC_TURN_LIMIT = 8             # wait until they are 8 turns away, then run
+DOOMED_EVAC_TURN_LIMIT = 22             # was 8 – safer evacuation
 DOOMED_MIN_SHIPS = 1                   # evacuate every ship, every point counts
 
 SOFT_ACT_DEADLINE = 0.82
@@ -691,6 +691,21 @@ def _compute_weakest_enemy(enemy_planets, owner_strength, owner_production):
     )
 
 
+def _compute_enemy_war_commitment(arrivals_by_planet, planet_by_id, player):
+    """Track how many ships each enemy has committed to attacking other enemies."""
+    war_ships = defaultdict(int)
+    for target_id, arrivals in arrivals_by_planet.items():
+        target = planet_by_id[target_id]
+        if target.owner == -1 or target.owner == player:
+            continue
+        for _, attacker_owner, ships in arrivals:
+            if attacker_owner == player or attacker_owner == -1:
+                continue
+            if attacker_owner != target.owner:
+                war_ships[attacker_owner] += int(ships)
+    return dict(war_ships)
+
+
 class WorldModel:
     def __init__(self, player, step, planets, fleets, initial_by_id, ang_vel, comets, comet_ids):
         self.player = player
@@ -780,6 +795,12 @@ class WorldModel:
             planet.id: indirect_features(planet, planets, player) for planet in planets
         }
         self.exposed_planet_ids = detect_exposed_enemy_planets(fleets, self.enemy_planets)
+
+        # --- THREAT MATRIX: track inter-enemy wars ---
+        self.enemy_war_ships = _compute_enemy_war_commitment(
+            self.arrivals_by_planet, self.planet_by_id, player
+        )
+
         self.shot_cache = {}
         self.probe_candidate_cache = {}
         self.best_probe_cache = {}
@@ -1411,6 +1432,12 @@ def target_value(target, arrival_turns, mission, world, modes, policy):
 
     if target.id in world.exposed_planet_ids:
         value *= EXPOSED_PLANET_VALUE_MULT
+
+    # War intelligence: boost value if enemy is distracted (Vulture strategy)
+    if target.owner in world.enemy_war_ships:
+        distraction = world.enemy_war_ships[target.owner]
+        if distraction > 25:
+            value *= 1.35
 
     if world.is_late:
         value += max(0, target.ships) * LATE_IMMEDIATE_SHIP_VALUE
