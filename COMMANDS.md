@@ -89,6 +89,53 @@ python batch_simulation.py --count 3 --log-steps --log-dir batch_logs
 ```
 
 
+### `parameter_tuner.py`
+Tunes hyperparameters in `submission.py` by running simulations against opponent agents and optimizing for win rate.
+
+#### Usage
+
+```bash
+python parameter_tuner.py [options]
+```
+
+#### Options
+
+- `--opponents`: Comma-separated list of opponent agent files. Default: `agent1.py,agent2.py,agent3.py`
+- `--matches`: Number of matches per opponent per candidate. Default: `2`
+- `--trials`: Number of random candidate trials to run. Default: `20`
+- `--seed`: Random seed for reproducibility. Default: `1234`
+- `--params`: Comma-separated parameter names to tune. Default: curated list of key parameters
+- `--save-config`: Path to save the best parameter set as JSON. Default: `best_submission_params.json`
+- `--output-agent`: Path to write the tuned agent Python file. Default: `submission_tuned.py`
+- `--dry-run`: Do not write output files
+
+#### Examples
+
+Run tuning with default settings (20 trials, 2 matches each):
+
+```bash
+python parameter_tuner.py
+```
+
+Tune specific parameters with more trials:
+
+```bash
+python parameter_tuner.py --params SAFE_NEUTRAL_MARGIN,ATTACK_COST_TURN_WEIGHT --trials 50 --matches 3
+```
+
+Tune against specific opponents and save results:
+
+```bash
+python parameter_tuner.py --opponents agent1.py,agent2.py --save-config tuned_params.json --output-agent tuned_agent.py
+```
+
+Perform a dry run to see what would be done without writing files:
+
+```bash
+python parameter_tuner.py --dry-run --trials 5
+```
+
+
 ## Log output
 
 When `--log-steps` is enabled, logs are written to files in the specified output directory.
