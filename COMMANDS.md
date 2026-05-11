@@ -90,7 +90,7 @@ python batch_simulation.py --count 3 --log-steps --log-dir batch_logs
 
 
 ### `parameter_tuner.py`
-Tunes hyperparameters in `submission.py` by running simulations against opponent agents and optimizing for win rate.
+Tunes hyperparameters in a Python agent file (default: `submission.py`) by running simulations against opponent agents and optimizing for win rate.
 
 #### Usage
 
@@ -100,13 +100,15 @@ python parameter_tuner.py [options]
 
 #### Options
 
+- `--agent-file`: Agent file to tune. Default: `submission.py`
 - `--opponents`: Comma-separated list of opponent agent files. Default: `agent1.py,agent2.py,agent3.py`
 - `--matches`: Number of matches per opponent per candidate. Default: `2`
 - `--trials`: Number of random candidate trials to run. Default: `20`
 - `--seed`: Random seed for reproducibility. Default: `1234`
 - `--params`: Comma-separated parameter names to tune. Default: curated list of key parameters
+- `--workers`: Number of parallel worker processes to use. Default: number of CPU cores - 1
 - `--save-config`: Path to save the best parameter set as JSON. Default: `best_submission_params.json`
-- `--output-agent`: Path to write the tuned agent Python file. Default: `submission_tuned.py`
+- `--output-agent`: Path to write the tuned agent Python file with the best parameters. Default: `<agent-file>_tuned.py`
 - `--dry-run`: Do not write output files
 
 #### Examples
