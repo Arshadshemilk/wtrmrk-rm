@@ -4,6 +4,14 @@ import sys
 from pathlib import Path
 from kaggle_environments import make
 
+# Ensure the Orbit Wars environment package is imported before using make()
+# This is necessary when worker processes start fresh and the environment
+# registry is not preloaded.
+try:
+    import kaggle_environments.envs.orbit_wars.orbit_wars as ow
+except ImportError:
+    ow = None
+
 VIZ_PATH = Path('/workspaces/wtrmrk-rm/vizar-orbit-data')
 
 
