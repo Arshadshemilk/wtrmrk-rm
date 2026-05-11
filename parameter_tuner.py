@@ -1,4 +1,5 @@
 import argparse
+import concurrent.futures
 import json
 import os
 import random
@@ -106,6 +107,11 @@ def random_value(range_tuple):
     raise ValueError(f'Unsupported parameter type: {value_type}')
 
 
+def run_match_task(agent_path, opponent):
+    summary = run_match(agent_a=agent_path, agent_b=opponent)
+    return opponent, summary
+
+
 def sample_candidate(param_ranges):
     return {name: random_value(settings) for name, settings in param_ranges.items()}
 
@@ -119,23 +125,34 @@ def score_match(summary):
     return -10
 
 
-def evaluate_candidate(candidate, opponents, matches_per_opponent, base_text):
+def evaluate_candidate(candidate, opponents, matches_per_opponent, base_text, workers=1):
     with tempfile.TemporaryDirectory(prefix='param-tuner-') as tmp_dir:
         candidate_file = build_candidate_file(base_text, candidate, Path(tmp_dir))
+        tasks = [
+            (str(candidate_file), opponent)
+            for opponent in opponents
+            for _ in range(matches_per_opponent)
+        ]
         total_score = 0
         results = []
-        for opponent in opponents:
-            for _ in range(matches_per_opponent):
-                summary = run_match(agent_a=str(candidate_file), agent_b=opponent)
+        if workers == 1:
+            for agent_path, opponent in tasks:
+                _, summary = run_match_task(agent_path, opponent)
                 score = score_match(summary)
                 total_score += score
                 results.append({'opponent': opponent, 'summary': summary, 'score': score})
+        else:
+            with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+                for opponent, summary in executor.map(lambda args: run_match_task(*args), tasks):
+                    score = score_match(summary)
+                    total_score += score
+                    results.append({'opponent': opponent, 'summary': summary, 'score': score})
         return total_score, results
 
 
-def improve_candidate(base_candidate, param_ranges, opponents, matches_per_opponent, base_text, iterations=50):
+def improve_candidate(base_candidate, param_ranges, opponents, matches_per_opponent, base_text, workers=1, iterations=50):
     best_candidate = dict(base_candidate)
-    best_score, _ = evaluate_candidate(best_candidate, opponents, matches_per_opponent, base_text)
+    best_score, _ = evaluate_candidate(best_candidate, opponents, matches_per_opponent, base_text, workers=workers)
     for _ in range(iterations):
         neighbor = dict(best_candidate)
         key = random.choice(list(param_ranges.keys()))
@@ -147,7 +164,7 @@ def improve_candidate(base_candidate, param_ranges, opponents, matches_per_oppon
         else:
             step = (hi - lo) * 0.12
             neighbor[key] = max(lo, min(hi, current + random.uniform(-step, step)))
-        score, _ = evaluate_candidate(neighbor, opponents, matches_per_opponent, base_text)
+        score, _ = evaluate_candidate(neighbor, opponents, matches_per_opponent, base_text, workers=workers)
         if score > best_score:
             best_score, best_candidate = score, neighbor
     return best_score, best_candidate
@@ -165,6 +182,7 @@ def main():
     parser.add_argument('--trials', type=int, default=20, help='Random candidate trials to run')
     parser.add_argument('--seed', type=int, default=1234, help='Random seed for reproducibility')
     parser.add_argument('--params', default=','.join(DEFAULT_PARAM_RANGES.keys()), help='Comma-separated parameter names to tune')
+    parser.add_argument('--workers', type=int, default=max(1, (os.cpu_count() or 2) - 1), help='Number of parallel worker processes to use')
     parser.add_argument('--save-config', default='best_submission_params.json', help='Write the best parameter set to JSON')
     parser.add_argument('--output-agent', default='submission_tuned.py', help='Write a tuned agent Python file with the best parameters')
     parser.add_argument('--dry-run', action='store_true', help='Do not write output files')
@@ -200,12 +218,13 @@ def main():
     print(f'Tuning parameters: {sorted(param_ranges.keys())}')
     print(f'Opponents: {opponents}')
     print(f'Matches per opponent: {args.matches}')
+    print(f'Parallel workers: {args.workers}')
 
     best_candidate = None
     best_score = float('-inf')
     for trial in range(1, args.trials + 1):
         candidate = sample_candidate(param_ranges)
-        score, results = evaluate_candidate(candidate, opponents, args.matches, base_text)
+        score, results = evaluate_candidate(candidate, opponents, args.matches, base_text, workers=args.workers)
         print(f'Trial {trial}/{args.trials}: score={score} candidate={candidate}')
         if score > best_score:
             best_score = score
