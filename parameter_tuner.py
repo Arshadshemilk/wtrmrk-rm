@@ -121,6 +121,10 @@ def run_match_task(agent_path, opponent):
     return opponent, summary
 
 
+def run_match_args(args):
+    return run_match_task(*args)
+
+
 def sample_candidate(param_ranges):
     return {name: random_value(settings) for name, settings in param_ranges.items()}
 
@@ -152,7 +156,7 @@ def evaluate_candidate(candidate, opponents, matches_per_opponent, base_text, ta
                 results.append({'opponent': opponent, 'summary': summary, 'score': score})
         else:
             with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
-                for opponent, summary in executor.map(lambda args: run_match_task(*args), tasks):
+                for opponent, summary in executor.map(run_match_args, tasks):
                     score = score_match(summary)
                     total_score += score
                     results.append({'opponent': opponent, 'summary': summary, 'score': score})
