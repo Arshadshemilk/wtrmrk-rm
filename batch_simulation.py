@@ -5,7 +5,7 @@ from simulate import get_replay_step_log, run_match, summarize_replay
 
 def parse_opponents(opponents_str):
     if not opponents_str:
-        return ['agent1.py', 'agent2.py', 'agent3.py']
+        return ['agent1.py', 'agent2.py', 'agent3.py','test.py']
     return [opp.strip() for opp in opponents_str.split(',') if opp.strip()]
 
 
@@ -25,9 +25,9 @@ def print_run_summary(agent, opponent, results):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Batch run Orbit Wars 1v1 simulations for test.py against opponent agents.')
-    parser.add_argument('--agent', default='test.py', help='Path to the first agent (default: test.py)')
-    parser.add_argument('--opponents', default='agent1.py,agent2.py,agent3.py', help='Comma-separated list of opponent agent files')
+    parser = argparse.ArgumentParser(description='Batch run Orbit Wars 1v1 simulations for agentrl.py against opponent agents.')
+    parser.add_argument('--agent', default='agentrl.py', help='Path to the first agent (default: agentrl.py)')
+    parser.add_argument('--opponents', default='agent1.py,agent2.py,agent3.py,test.py', help='Comma-separated list of opponent agent files')
     parser.add_argument('--count', type=int, default=5, help='Number of matches to run against each opponent')
     parser.add_argument('--render', action='store_true', help='Render each match in HTML (not recommended for batch runs)')
     parser.add_argument('--log-steps', action='store_true', help='Save per-step match logs to text files')
